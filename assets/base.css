@@ -138,7 +138,7 @@ pre {
   margin: 0 auto;
 }
 
-.layout.home + .site-footer .site-footer-inner {
+.layout.home + .site-footer {
   max-width: 64rem;
   margin: 0 auto;
 }
