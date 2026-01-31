@@ -144,6 +144,42 @@ pre {
   margin: 0 auto;
 }
 
+/* ==================
+Liste de composants
+===================== */
+.components-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.components-list li {
+  margin-bottom: 1rem;
+}
+
+.components-list a {
+  display: block;
+  padding: 1rem 1.25rem;
+
+  background-color: var(--color-bg-soft);
+  border: 1px solid #d6e0e8;
+  border-radius: 6px;
+
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.components-list a:hover {
+  background-color: #ffffff;
+  text-decoration: underline;
+}
+
+.components-list a:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* =========================
    Responsive – mobile / tablette
    ========================= */
