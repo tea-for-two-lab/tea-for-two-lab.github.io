@@ -8,7 +8,7 @@
   --color-action: #0f5c6e;
   --color-action-dark: #0c4a59;
 
-   --color-bg: #044756;
+  --color-bg: #044756;
   --color-bg-soft: #eef3f7;
 
   --color-text-main: #1a1a1a;
@@ -24,7 +24,9 @@
   --code-string: #ce9178;
 }
 
-/* Reset minimal */
+/* =========================
+   Reset minimal
+   ========================= */
 *,
 *::before,
 *::after {
@@ -51,7 +53,7 @@ pre {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-   padding: 0 1rem;
+  padding: 0 1rem;
 }
 
 .content,
@@ -60,44 +62,49 @@ pre {
 }
 
 /* =========================
-   Titres – colonne gauche
+   Logo + titre (partout)
+   ========================= */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.site-logo img {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* =========================
+   Titres
    ========================= */
 .content h1 {
   font-size: 2.25rem;
   line-height: 1.25;
-   border-bottom: 4px solid var(--color-primary);
+  border-bottom: 4px solid var(--color-primary);
   padding-bottom: 0.5rem;
-   color: var(--color-primary);
-   display: inline-flex;
-  align-items: center;
-  gap: 0.75rem; /* espace entre logo et texte */
-}
-
-.content h1 img {
-  display: block;
-  width: 2.25rem;  /* adapte à ta typo */
-  height: auto;
+  color: var(--color-primary);
 }
 
 .content h2 {
   font-size: 1.5rem;
   line-height: 1.35;
-   color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .content h3 {
   font-size: 1.25rem;
   line-height: 1.4;
-   color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* =========================
-   Bloc Démo – mise en valeur
+   Bloc Démo
    ========================= */
 .demo-block {
   margin-top: 2rem;
   padding: 1.5rem;
-
   background-color: var(--color-bg-soft);
   border: 1px solid #d6e0e8;
   border-radius: 6px;
@@ -106,14 +113,12 @@ pre {
 /* =========================
    Colonne droite – Code
    ========================= */
-
 .code {
   background-color: var(--color-bg);
   padding: 1.5rem;
   border-radius: 6px;
 }
 
-/* Titres de sections code */
 .code h2 {
   font-size: 2rem;
   margin-top: 0;
@@ -122,7 +127,6 @@ pre {
 /* =========================
    Blocs de code
    ========================= */
-
 .code-block {
   margin-bottom: 2rem;
 }
@@ -130,59 +134,27 @@ pre {
 .code pre {
   background-color: var(--code-bg);
   color: var(--code-text);
-
   padding: 1rem;
   margin: 0;
-
   border-radius: 6px;
   overflow-x: auto;
 }
 
-/* =========================
-   Coloration syntaxique
-   ========================= */
+/* Coloration syntaxique */
+.code .tag { color: var(--code-tag); }
+.code .attr { color: var(--code-attr); }
+.code .string { color: var(--code-string); }
+.code .keyword { color: var(--code-keyword); }
+.code .property { color: var(--code-attr); }
+.code .value { color: var(--code-string); }
 
-.code .tag {
-  color: var(--code-tag);
-}
-
-.code .attr {
-  color: var(--code-attr);
-}
-
-.code .string {
-  color: var(--code-string);
-}
-
-.code .keyword {
-  color: var(--code-keyword);
-}
-
-.code .property {
-  color: var(--code-attr);
-}
-
-.code .value {
-  color: var(--code-string);
-}
-
-/* Titres par langage */
-.code-title-html {
-  color: var(--code-tag);
-}
-
-.code-title-js {
-  color: var(--code-keyword);
-}
-
-.code-title-css {
-  color: var(--code-css);
-}
+.code-title-html { color: var(--code-tag); }
+.code-title-js   { color: var(--code-keyword); }
+.code-title-css  { color: var(--code-css); }
 
 /* =========================
    Bouton copier
    ========================= */
-
 .copy-btn {
   background: #ffffff;
   color: var(--color-primary);
@@ -201,14 +173,10 @@ pre {
    Footer
    ========================= */
 .site-footer {
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
   background-color: #f7fafc;
   border-top: 1px solid #e0e6eb;
-   margin-top: 3rem;
-}
-
-.site-footer-inner {
-  margin: 0;
+  margin-top: 3rem;
 }
 
 .site-footer-brand {
@@ -218,13 +186,12 @@ pre {
 }
 
 .site-footer-brand img {
-  width: 1.25rem;   /* discret en footer */
+  width: 1.25rem;
   height: auto;
   display: block;
 }
 
 .site-footer-meta {
-  margin: 0 0 0.5rem 0;
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
@@ -236,27 +203,22 @@ pre {
   font-size: 0.65rem;
 }
 
-/* ===================================
-   Home – layout et footer spécifiques
-   =================================== */
-
+/* =========================
+   Home spécifique
+   ========================= */
 .layout.home {
   grid-template-columns: 1fr;
 }
 
-.layout.home .content {
-  max-width: 64rem;
-  margin: 0 auto;
-}
-
+.layout.home .content,
 .layout.home + .site-footer {
   max-width: 64rem;
   margin: 0 auto;
 }
 
-/* ==================
-Liste de composants
-===================== */
+/* =========================
+   Liste composants
+   ========================= */
 .components-list {
   list-style: none;
   padding: 0;
@@ -270,74 +232,40 @@ Liste de composants
 .components-list a {
   display: block;
   padding: 1rem 1.25rem;
-
   background-color: var(--color-bg-soft);
   border: 1px solid #d6e0e8;
   border-radius: 6px;
-
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
 }
 
-.components-list a:hover {
-  background-color: #ffffff;
-  text-decoration: underline;
-}
-
+.components-list a:hover,
 .components-list a:focus-visible {
-  outline: 3px dashed var(--color-primary);
-  outline-offset: 3px;
   text-decoration: underline;
 }
 
 /* =========================
-   Responsive – mobile / tablette
+   Responsive
    ========================= */
 @media (max-width: 900px) {
+  body { overflow-x: hidden; }
 
-   body {
-    overflow-x: hidden;
-  }
-   
-  /* Layout : une seule colonne */
   .layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  /* Contenu : largeur fluide */
-  .content {
-    max-width: none;
-  }
+  .content h1 { font-size: 1.9rem; }
+  .content h2 { font-size: 1.4rem; }
+  .content h3 { font-size: 1.2rem; }
 
-   .demo-block {
-    padding: 1.25rem;
-  }
+  .code { padding: 1rem; }
+  .demo-block { padding: 1.25rem; }
 
-  /* Colonne code */
-  .code {
-    padding: 1rem;
-  }
-
-  /* Titres : un peu plus compacts */
-  .content h1 {
-    font-size: 1.9rem;
-  }
-
-  .content h2 {
-    font-size: 1.4rem;
-  }
-
-  .content h3 {
-    font-size: 1.2rem;
-  }
-
-  /* Boutons copier : pleine largeur */
   .copy-btn {
     display: block;
     width: 100%;
-    margin-top: 0.75rem;
     text-align: center;
   }
 }
