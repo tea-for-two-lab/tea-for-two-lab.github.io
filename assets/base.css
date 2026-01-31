@@ -1,8 +1,4 @@
 /* =========================
-   Base – Tea For Two Lab
-   ========================= */
-
-/* =========================
    Variables globales
    ========================= */
 :root {
@@ -98,45 +94,36 @@ pre {
   border-radius: 6px;
 }
 
-
 /* =========================
-   Home layout
-   ========================= 
-
-.home {
-  max-width: 64rem;
-  padding: 2rem 1rem;
+   Footer
+   ========================= */
+.site-footer {
+  padding: 1.5rem 1.5rem;
+  background-color: #f7fafc;
+  border-top: 1px solid #e0e6eb;
 }
 
-.home-header h1 {
-  margin-bottom: 0.25rem;
-  color: var(--color-primary);
+.site-footer-inner {
+  margin: 0;
 }
 
-.home-tagline {
-  margin-top: 0;
+.site-footer-brand {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.site-footer-meta {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
-.home-components ul {
-  list-style: none;
-  padding: 0;
+.site-footer-story {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e0e6eb;
+  font-size: 0.65rem;
 }
-
-.home-components li {
-  margin-bottom: 0.75rem;
-}
-
-.home-components a {
-  font-weight: 600;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.home-components a:hover {
-  text-decoration: underline;
-}
-*/
 
 /* =========================
    Responsive – mobile / tablette
