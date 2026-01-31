@@ -33,11 +33,8 @@
 }
 
 .accordion button:focus-visible {
-  background-color: #ffffff;
-  color: var(--color-action);
-  outline: 3px dashed var(--color-bg);
+   outline: 3px dashed var(--color-bg);
    outline-offset: 3px;
-   text-decoration: underline;
 }
 
 .accordion div {
