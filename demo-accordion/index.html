@@ -1,1 +1,166 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accordion – démo accessibilité</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="accordion.css">
+</head>
+
+<body>
+  
+  <main class="layout">
+
+    <!-- COLONNE GAUCHE -->
+    <section class="content">
+      <h1>Accordion – démo accessibilité</h1>
+
+      <p>
+        Démonstration d’un composant accordéon accessible
+        (button + panneau, aria-expanded, aria-controls).
+      </p>
+
+     <h2>Principaux éléments pour réaliser ce composant</h2> 
+     <ul class="demo-block">
+       <li>button</li>
+       <li>aria-expanded</li>
+       <li>aria-controls</li>
+     </ul> 
+
+      <h2>Démo</h2>
+      <section class="demo-block">
+     <ul class="accordion">
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="panel-1">
+            Section 1
+          </button>
+          <div id="panel-1" hidden>
+            <p>Contenu de la section 1.</p>
+            <p>Autre paragraphe éventuel.</p>
+          </div>
+        </li>
+
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="panel-2">
+            Section 2
+          </button>
+          <div id="panel-2" hidden>
+            <p>Contenu de la section 2.</p>
+          </div>
+        </li>
+
+        <li>
+          <button type="button" aria-expanded="false" aria-controls="panel-3">
+            Section 3
+          </button>
+          <div id="panel-3" hidden>
+            <p>Contenu de la section 3.</p>
+          </div>
+        </li>
+      </ul>
+      </section>
+    </section>
+
+    <!-- COLONNE DROITE -->
+    <aside class="code">
+
+      <!-- HTML -->
+      <h2 class="code-title-html">HTML</h2>
+        
+      <div class="code-block">
+        <pre><code id="code-html">
+<span class="tag">&lt;ul</span> <span class="attr">class</span>=<span class="string">"accordion"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-1"</span><span class="tag">&gt;</span>
+      Section 1
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-1"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 1.<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Autre paragraphe éventuel.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-2"</span><span class="tag">&gt;</span>
+      Section 2
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-2"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 2.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-3"</span><span class="tag">&gt;</span>
+      Section 3
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-3"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 3.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+        </code></pre>
+         <button class="copy-btn" data-copy="html">Copier le code HTML</button>
+      </div>
+
+      <!-- JS -->
+     
+      <h2 class="code-title-js">JavaScript</h2>
+        
+      <div class="code-block">
+        <pre><code id="code-js">
+<span class="keyword">const</span> buttons =
+  document.querySelectorAll(<span class="string">'.accordion button'</span>);
+        </code></pre>
+         <button class="copy-btn" data-copy="js">Copier le code JavaScript</button>
+      </div>
+
+      <!-- CSS -->
+      
+        <h2 class="code-title-css">CSS</h2>
+       
+      <div class="code-block">
+       <pre><code id="code-css">
+<span class="property">background-color</span>: <span class="value">var(--color-action)</span>;
+        </code></pre>
+         <button class="copy-btn" data-copy="css">Copier le code CSS</button>
+      </div>
+
+    </aside>
+  </main>
+  <footer class="site-footer" role="content-info">
+  <div class="site-footer-inner">
+    <p class="site-footer-brand">
+      <span class="site-name"><i lang="en"><strong>Tea for Two</strong></i></span>
+      <span class="site-separator" aria-hidden="true">—</span>
+      <span class="site-tagline" lang="en">Accessible components</span>
+    </p>
+
+    <p class="site-footer-meta">
+      Démonstrations pédagogiques • Accessibilité RGAA <span aria-hidden="true">/</span> WCAG
+    </p>
+    <p class="site-footer-story"><i lang="en">Tea for Two</i> symbolise l’échange entre le système et la personne, dans toute leur diversité. C'est aussi un clin d'œil à la célèbre chanson.</p>
+  </div>
+</footer>
+
+
+  <script src="accordion.js"></script>
+</body>
+</html>
