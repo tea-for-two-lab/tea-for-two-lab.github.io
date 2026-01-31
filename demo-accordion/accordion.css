@@ -1,0 +1,305 @@
+/* =========================
+   Variables globales
+   ========================= */
+:root {
+  --color-primary: #0b3c5d;
+  --color-primary-dark: #0b1f33;
+
+  --color-action: #0f5c6e;
+  --color-action-dark: #0c4a59;
+
+   --color-bg: #044756;
+  --color-bg-soft: #eef3f7;
+
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #5f6f7c;
+
+  /* Code */
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+  --code-tag: #569cd6;
+  --code-keyword: #c586c0;
+  --code-css: #4fc1ff;
+  --code-attr: #9cdcfe;
+  --code-string: #ce9178;
+}
+
+/* =========================
+   Base
+   ========================= */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  margin: 0;
+}
+
+code,
+pre {
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+/* =========================
+   Layout
+   ========================= */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+   padding: 0 1rem;
+}
+
+.content,
+.code {
+  min-width: 0;
+}
+
+/* =========================
+   Titres – colonne gauche
+   ========================= */
+.content h1 {
+  font-size: 2.25rem;
+  line-height: 1.25;
+   border-bottom: 4px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+   color: var(--color-primary);
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+   color: var(--color-primary);
+}
+
+.content h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+   color: var(--color-primary);
+}
+
+/* =========================
+   Bloc Démo – mise en valeur
+   ========================= */
+.demo-block {
+  margin-top: 2rem;
+  padding: 1.5rem;
+
+  background-color: var(--color-bg-soft);
+  border: 1px solid #d6e0e8;
+  border-radius: 6px;
+}
+
+/* =========================
+   Accordéon
+   ========================= */
+.accordion {
+  list-style: none;
+  padding: 0;
+}
+
+/* Items */
+.accordion li {
+  margin-bottom: 2rem;
+}
+
+/* Bouton (état normal) */
+.accordion button {
+  all: unset;
+  display: block;
+  width: 100%;
+   box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg);
+  color: #ffffff;
+
+  border: 3px solid var(--color-bg);
+  border-radius: 4px;
+}
+
+/* Survol souris : inversion + soulignement */
+.accordion button:hover {
+  background-color: #FFFFFF;
+  color: var(--color-action);
+  text-decoration: underline;
+}
+
+.accordion button:focus {
+  outline: 4px solid var(--color-bg);
+}
+
+/* Focus clavier : inversion + bordure dashed bleu marine */
+.accordion button:focus-visible {
+  outline: none;
+
+  background-color: #FFFFFF;
+  color: var(--color-action);
+
+  border: 3px dashed var(--color-bg);
+  text-decoration: underline; /* optionnel, cohérent avec ton hover */
+}
+
+/* Panneaux */
+.accordion div {
+  margin-top: 0.5rem;
+  padding: 1rem;
+
+  background-color: var(--color-bg-soft);
+  border: 1px solid #cbd5dd;
+  border-radius: 4px;
+}
+
+/* =========================
+   Code blocks (colonne droite)
+   ========================= */
+.code-block {
+   margin-bottom: 2rem;
+   overflow-x: hidden;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 0.5rem 0.25rem;
+  border-radius: 6px 6px 0 0;
+margin-bottom: 10px;
+}
+
+.code {
+      background-color: var(--color-bg);
+    padding: 1rem;
+}
+
+.code pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+ 
+  padding: 1rem;
+  margin: 0;
+
+  border-radius: 0 0 6px 6px;
+  max-width: 100%;
+  overflow-x: auto;
+   
+}
+
+/* =========================
+   Coloration syntaxique (spans)
+   ========================= */
+.code .tag { color: var(--code-tag); }
+.code .attr { color: var(--code-attr); }
+.code .string { color: var(--code-string); }
+.code .keyword { color: var(--code-keyword); }
+.code .property { color: var(--code-attr); }
+.code .value { color: var(--code-string); }
+
+/* Titres code */
+.code h2 {font-size: 2rem; }
+.code-title-html { color: var(--code-tag); }
+.code-title-js   { color: var(--code-keyword); }
+.code-title-css  { color: var(--code-css); }
+
+/* =========================
+   Bouton copier (colonne droite)
+   ========================= */
+.copy-btn {
+  background: #FFFFFF;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.copy-btn:focus-visible {
+  outline: 2px dashed var(--code-text);
+}
+
+/* =========================
+   Footer – signature du site
+   ========================= */
+.site-footer {
+  padding: 1.5rem 1.5rem;
+
+  background-color: #f7fafc; /* même fond que le header */
+  border-top: 1px solid #e0e6eb;
+}
+
+.site-footer-inner {
+  margin: 0;
+}
+
+.site-footer-brand {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.site-footer-meta {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer-story {
+  margin-top: 1rem;
+   padding-top: 0.5rem;
+   border-top: 1px solid #e0e6eb;
+  font-size: 0.65rem;
+}
+
+/* =========================
+   Responsive – mobile / tablette
+   ========================= */
+@media (max-width: 900px) {
+
+   body {
+    overflow-x: hidden;
+  }
+   
+  /* Layout : une seule colonne */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Contenu : largeur fluide */
+  .content {
+    max-width: none;
+  }
+
+   .demo-block {
+    padding: 1.25rem;
+  }
+
+  /* Colonne code */
+  .code {
+    padding: 1rem;
+  }
+
+  /* Titres : un peu plus compacts */
+  .content h1 {
+    font-size: 1.9rem;
+  }
+
+  .content h2 {
+    font-size: 1.4rem;
+  }
+
+  .content h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Accordéon : boutons confortables au toucher */
+  .accordion button {
+    padding: 1rem;
+  }
+
+  /* Boutons copier : pleine largeur */
+  .copy-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+}
