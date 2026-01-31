@@ -60,6 +60,19 @@ pre {
 }
 
 /* =========================
+   Home – layout spécifique
+   ========================= */
+
+.layout.home {
+  grid-template-columns: 1fr;
+}
+
+.layout.home .content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* =========================
    Titres – colonne gauche
    ========================= */
 .content h1 {
