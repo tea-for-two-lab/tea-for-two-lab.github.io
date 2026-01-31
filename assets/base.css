@@ -173,7 +173,7 @@ pre {
    Footer
    ========================= */
 .site-footer {
-  padding: 1.5rem;
+  padding: 0 1.5rem;
   background-color: #f7fafc;
   border-top: 1px solid #e0e6eb;
   margin-top: 3rem;
@@ -214,6 +214,7 @@ pre {
 .layout.home + .site-footer {
   max-width: 64rem;
   margin: 0 auto;
+margin-top: 3rem;
 }
 
 /* =========================
