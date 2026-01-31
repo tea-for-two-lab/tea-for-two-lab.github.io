@@ -1,1 +1,64 @@
+/* =========================
+   Base – Tea For Two Lab
+   ========================= */
+
+:root {
+  --color-primary: #0b3c5d;
+  --color-bg-soft: #eef3f7;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #5f6f7c;
+}
+
+/* Reset minimal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+/* =========================
+   Home layout
+   ========================= */
+
+.home {
+  max-width: 64rem;
+  padding: 2rem 1rem;
+}
+
+.home-header h1 {
+  margin-bottom: 0.25rem;
+  color: var(--color-primary);
+}
+
+.home-tagline {
+  margin-top: 0;
+  color: var(--color-text-muted);
+}
+
+.home-components ul {
+  list-style: none;
+  padding: 0;
+}
+
+.home-components li {
+  margin-bottom: 0.75rem;
+}
+
+.home-components a {
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.home-components a:hover {
+  text-decoration: underline;
+}
 
