@@ -59,24 +59,6 @@ pre {
   min-width: 0;
 }
 
-/* ===================================
-   Home – layout et footer spécifiques
-   =================================== */
-
-.layout.home {
-  grid-template-columns: 1fr;
-}
-
-.layout.home .content {
-  max-width: 64rem;
-  margin: 0 auto;
-}
-
-.layout.home + .site-footer .site-footer-inner {
-  max-width: 64rem;
-  margin: 0 auto;
-}
-
 /* =========================
    Titres – colonne gauche
    ========================= */
@@ -141,6 +123,24 @@ pre {
   padding-top: 0.5rem;
   border-top: 1px solid #e0e6eb;
   font-size: 0.65rem;
+}
+
+/* ===================================
+   Home – layout et footer spécifiques
+   =================================== */
+
+.layout.home {
+  grid-template-columns: 1fr;
+}
+
+.layout.home .content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.layout.home + .site-footer .site-footer-inner {
+  max-width: 64rem;
+  margin: 0 auto;
 }
 
 /* =========================
