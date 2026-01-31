@@ -59,15 +59,20 @@ pre {
   min-width: 0;
 }
 
-/* =========================
-   Home – layout spécifique
-   ========================= */
+/* ===================================
+   Home – layout et footer spécifiques
+   =================================== */
 
 .layout.home {
   grid-template-columns: 1fr;
 }
 
 .layout.home .content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.layout.home + .site-footer .site-footer-inner {
   max-width: 64rem;
   margin: 0 auto;
 }
