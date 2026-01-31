@@ -212,8 +212,15 @@ pre {
 }
 
 .site-footer-brand {
-  margin: 0 0 0.5rem 0;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-footer-brand img {
+  width: 1.25rem;   /* discret en footer */
+  height: auto;
+  display: block;
 }
 
 .site-footer-meta {
