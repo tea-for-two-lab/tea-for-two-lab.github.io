@@ -95,6 +95,100 @@ pre {
 }
 
 /* =========================
+   Colonne droite – Code
+   ========================= */
+
+.code {
+  background-color: var(--color-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+/* Titres de sections code */
+.code h2 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+/* =========================
+   Blocs de code
+   ========================= */
+
+.code-block {
+  margin-bottom: 2rem;
+}
+
+.code pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+
+  padding: 1rem;
+  margin: 0;
+
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* =========================
+   Coloration syntaxique
+   ========================= */
+
+.code .tag {
+  color: var(--code-tag);
+}
+
+.code .attr {
+  color: var(--code-attr);
+}
+
+.code .string {
+  color: var(--code-string);
+}
+
+.code .keyword {
+  color: var(--code-keyword);
+}
+
+.code .property {
+  color: var(--code-attr);
+}
+
+.code .value {
+  color: var(--code-string);
+}
+
+/* Titres par langage */
+.code-title-html {
+  color: var(--code-tag);
+}
+
+.code-title-js {
+  color: var(--code-keyword);
+}
+
+.code-title-css {
+  color: var(--code-css);
+}
+
+/* =========================
+   Bouton copier
+   ========================= */
+
+.copy-btn {
+  background: #ffffff;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.copy-btn:focus-visible {
+  outline: 2px dashed var(--code-text);
+  outline-offset: 2px;
+}
+
+/* =========================
    Footer
    ========================= */
 .site-footer {
