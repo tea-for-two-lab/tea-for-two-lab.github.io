@@ -137,3 +137,54 @@ pre {
   text-decoration: underline;
 }
 */
+
+/* =========================
+   Responsive – mobile / tablette
+   ========================= */
+@media (max-width: 900px) {
+
+   body {
+    overflow-x: hidden;
+  }
+   
+  /* Layout : une seule colonne */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Contenu : largeur fluide */
+  .content {
+    max-width: none;
+  }
+
+   .demo-block {
+    padding: 1.25rem;
+  }
+
+  /* Colonne code */
+  .code {
+    padding: 1rem;
+  }
+
+  /* Titres : un peu plus compacts */
+  .content h1 {
+    font-size: 1.9rem;
+  }
+
+  .content h2 {
+    font-size: 1.4rem;
+  }
+
+  .content h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Boutons copier : pleine largeur */
+  .copy-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+}
