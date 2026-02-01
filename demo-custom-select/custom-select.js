@@ -13,8 +13,6 @@ function openListbox() {
   isOpen = true;
   listbox.hidden = false;
   trigger.setAttribute('aria-expanded', 'true');
-
-  setActiveOption(0);
 }
 
 function closeListbox({ restoreFocus = true } = {}) {
@@ -62,9 +60,29 @@ trigger.addEventListener('click', () => {
 });
 
 trigger.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+  // Ouvrir la liste
+  if (!isOpen && (e.key === 'Enter' || e.key === ' ')) {
     e.preventDefault();
     openListbox();
+    return;
+  }
+
+  // Entrer dans la liste volontairement
+  if (isOpen && e.key === 'ArrowDown') {
+    e.preventDefault();
+
+    const selectedIndex = options.findIndex(
+      option => option.getAttribute('aria-selected') === 'true'
+    );
+
+    setActiveOption(selectedIndex >= 0 ? selectedIndex : 0);
+    return;
+  }
+
+  // Fermer
+  if (isOpen && e.key === 'Escape') {
+    e.preventDefault();
+    closeListbox();
   }
 });
 
