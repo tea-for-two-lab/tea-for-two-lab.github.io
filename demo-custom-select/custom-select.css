@@ -8,3 +8,29 @@
   outline-offset: 3px;
   background-color: #FFFFFF;
 }
+
+.custom-select__list button {
+  all: unset;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg);
+  color: #ffffff;
+
+  border: 3px solid var(--color-bg);
+  border-radius: 4px;
+}
+
+.custom-select__list button:hover {
+  background-color: #ffffff;
+  color: var(--color-action);
+  text-decoration: underline;
+}
+
+.custom-select__list button:focus-visible {
+   outline: 3px dashed var(--color-bg);
+   outline-offset: 3px;
+}
