@@ -1,0 +1,52 @@
+/* =========================
+   Accordion component
+   ========================= */
+
+.accordion {
+  list-style: none;
+  padding: 0;
+}
+
+.accordion li {
+  margin-bottom: 2rem;
+}
+
+.accordion button {
+  all: unset;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg);
+  color: #ffffff;
+
+  border: 3px solid var(--color-bg);
+  border-radius: 4px;
+}
+
+.accordion button:hover {
+  background-color: #ffffff;
+  color: var(--color-action);
+  text-decoration: underline;
+}
+
+.accordion button:focus-visible {
+   outline: 3px dashed var(--color-bg);
+   outline-offset: 3px;
+}
+
+.accordion div {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: var(--color-bg-soft);
+  border: 1px solid #cbd5dd;
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .accordion button {
+    padding: 1rem;
+  }
+}
