@@ -175,7 +175,7 @@ pre {
    Footer
    ========================= */
 .site-footer {
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 0.1rem 1.5rem;
   background-color: #f7fafc;
   border-top: 1px solid #e0e6eb;
   margin-top: 3rem;
@@ -245,6 +245,11 @@ margin-top: 3rem;
 .components-list a:hover,
 .components-list a:focus-visible {
   text-decoration: underline;
+}
+
+.components-list a:focus-visible {
+  outline: 3px dashed var(--color-primary);
+   outline-offset: 3px;
 }
 
 /* =========================
