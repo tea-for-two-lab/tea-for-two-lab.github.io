@@ -1,41 +1,109 @@
-/* Accordéon */
-const buttons = document.querySelectorAll('.accordion button');
+const select = document.querySelector('.custom-select');
+const trigger = select.querySelector('.custom-select__trigger');
+const listbox = select.querySelector('.custom-select__list');
+const options = Array.from(listbox.querySelectorAll('[role="option"]'));
+const hiddenInput = select.querySelector('input[type="hidden"]');
 
-buttons.forEach(button => {
-  const panel = document.getElementById(
-    button.getAttribute('aria-controls')
-  );
+let isOpen = false;
+let currentIndex = 0;
 
-  button.addEventListener('click', () => {
-    const expanded =
-      button.getAttribute('aria-expanded') === 'true';
+/* ---------- utils ---------- */
 
-    button.setAttribute(
-      'aria-expanded',
-      String(!expanded)
-    );
+function openListbox() {
+  isOpen = true;
+  listbox.hidden = false;
+  trigger.setAttribute('aria-expanded', 'true');
 
-    panel.hidden = expanded;
+  setActiveOption(0);
+}
+
+function closeListbox({ restoreFocus = true } = {}) {
+  isOpen = false;
+  listbox.hidden = true;
+  trigger.setAttribute('aria-expanded', 'false');
+
+  resetOptions();
+
+  if (restoreFocus) {
+    trigger.focus();
+  }
+}
+
+function setActiveOption(index) {
+  resetOptions();
+
+  currentIndex = index;
+  const option = options[currentIndex];
+
+  option.tabIndex = 0;
+  option.focus();
+}
+
+function resetOptions() {
+  options.forEach(option => {
+    option.tabIndex = -1;
+  });
+}
+
+function selectOption(option) {
+  trigger.querySelector('.custom-select__label').textContent =
+    option.textContent;
+
+  hiddenInput.value = option.textContent;
+
+  closeListbox();
+}
+
+/* ---------- events ---------- */
+
+/* Bouton */
+trigger.addEventListener('click', () => {
+  isOpen ? closeListbox() : openListbox();
+});
+
+trigger.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    openListbox();
+  }
+});
+
+/* Options */
+options.forEach((option, index) => {
+  option.addEventListener('click', () => {
+    selectOption(option);
+  });
+
+  option.addEventListener('keydown', (e) => {
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setActiveOption((index + 1) % options.length);
+        break;
+
+      case 'ArrowUp':
+        e.preventDefault();
+        setActiveOption(
+          (index - 1 + options.length) % options.length
+        );
+        break;
+
+      case 'Enter':
+        e.preventDefault();
+        selectOption(option);
+        break;
+
+      case 'Escape':
+        e.preventDefault();
+        closeListbox();
+        break;
+    }
   });
 });
 
-/* Copier le code */
-const copyButtons = document.querySelectorAll('.copy-btn');
-
-copyButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const type = btn.getAttribute('data-copy');
-    const code = document.getElementById(`code-${type}`);
-
-    if (!code) return;
-
-    navigator.clipboard.writeText(code.textContent).then(() => {
-      const original = btn.textContent;
-      btn.textContent = 'Copié ✓';
-
-      setTimeout(() => {
-        btn.textContent = original;
-      }, 1500);
-    });
-  });
+/* Clic extérieur */
+document.addEventListener('click', (e) => {
+  if (isOpen && !select.contains(e.target)) {
+    closeListbox({ restoreFocus: false });
+  }
 });
