@@ -2,14 +2,13 @@
   list-style-type: none;
 }
 
-.custom-select__trigger:focus-visible,
 .custom-select__list [role="option"]:focus-visible {
   outline: 3px dashed var(--color-primary);
   outline-offset: 3px;
   background-color: #FFFFFF;
 }
 
-.custom-select button {
+.custom-select__trigger {
   all: unset;
   display: block;
   width: 100%;
@@ -24,13 +23,13 @@
   border-radius: 4px;
 }
 
-.custom-select button:hover {
+.custom-select__trigger:hover {
   background-color: #ffffff;
   color: var(--color-action);
   text-decoration: underline;
 }
 
-.custom-select button:focus-visible {
+.custom-select__trigger:focus-visible {
    outline: 3px dashed var(--color-bg);
    outline-offset: 3px;
 }
