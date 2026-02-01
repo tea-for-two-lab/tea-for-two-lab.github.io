@@ -1,5 +1,10 @@
+.custom-select__list {
+  list-style-type: none;
+}
+
 .custom-select__trigger:focus-visible,
 .custom-select__list [role="option"]:focus-visible {
   outline: 3px dashed var(--color-primary);
   outline-offset: 3px;
+  background-color: #FFFFFF;
 }
