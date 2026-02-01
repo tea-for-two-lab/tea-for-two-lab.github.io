@@ -30,7 +30,34 @@
 
       <h2>Démo</h2>
       <section class="demo-block">
-    
+    <div class="custom-select">
+  <button
+    type="button"
+    class="custom-select__trigger"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    id="custom-select-trigger"
+  >
+    <span class="custom-select__label">
+      Choisir une option
+    </span>
+  </button>
+
+  <ul
+    class="custom-select__list"
+    role="listbox"
+    tabindex="-1"
+    aria-labelledby="custom-select-trigger"
+    hidden
+  >
+    <li role="option" tabindex="0">Option 1</li>
+    <li role="option" tabindex="-1">Option 2</li>
+    <li role="option" tabindex="-1">Option 3</li>
+  </ul>
+
+  <input type="hidden" name="example" id="custom-select-value">
+</div>
+
       </section>
 
    <h2>Principaux éléments pour réaliser ce composant</h2> 
@@ -147,3 +174,4 @@
  <script src="/demo-custom-select/custom-select.js"></script>
 </body>
 </html>
+
