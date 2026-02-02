@@ -58,13 +58,29 @@
 
       </section>
 
-   <h2>Principaux éléments pour réaliser ce composant</h2> 
+   <h2>Principaux éléments pour réaliser ce composant accessible</h2>
       <section class="demo-block">
-     <ul>
-       <li>button</li>
-       <li>aria-expanded</li>
-       <li>aria-controls</li>
-     </ul>   
+         <ul>
+         <li>button
+          <ul>
+             <li>aria-haspopup="listbox"</li>
+             <li>aria-controls</li>
+           </ul>   
+         </li>
+           <li>ul
+          <ul>
+             <li>role="listbox"</li>
+             <li>tabindex</li>
+             <li>aria-labelledby</li>
+            <li>li
+              <ul>
+               <li>role="option"</li>
+               <li>tabindex</li>
+             </ul>
+            </li>
+           </ul>   
+         </li>
+       </ul>   
       </section>
 
       <h2>États et interactions utilisateur</h2>
@@ -177,6 +193,7 @@
  <script src="/demo-custom-select/custom-select.js"></script>
 </body>
 </html>
+
 
 
 
