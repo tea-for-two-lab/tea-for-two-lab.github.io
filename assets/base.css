@@ -54,11 +54,15 @@ pre {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 0 1rem;
-}
+ }
 
 .content,
 .code {
   min-width: 0;
+}
+
+.content {
+ margin-top: 3rem;
 }
 
 /* =========================
