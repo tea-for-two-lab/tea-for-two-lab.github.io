@@ -75,6 +75,10 @@ pre {
   margin: 0;
 }
 
+.site-logo i {
+   color: #d4a373;
+}
+
 .site-logo img {
   display: block;
   flex-shrink: 0;
