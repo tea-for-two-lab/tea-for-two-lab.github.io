@@ -76,7 +76,7 @@ pre {
 }
 
 .site-logo i {
-   color: #d4a373;
+   color: #9b6b3d;
 }
 
 .site-logo img {
@@ -92,7 +92,7 @@ pre {
 .content h1 {
   font-size: 2.25rem;
   line-height: 1.25;
-  border-bottom: 4px solid #d4a373;
+  border-bottom: 4px solid /*#d4a373*/ #9b6b3d;
   padding-bottom: 0.5rem;
   color: var(--color-primary);
 }
