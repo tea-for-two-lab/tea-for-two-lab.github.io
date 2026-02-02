@@ -75,10 +75,6 @@ pre {
   margin: 0;
 }
 
-.site-logo i {
-   color: #9b6b3d;
-}
-
 .site-logo img {
   display: block;
   flex-shrink: 0;
@@ -92,7 +88,7 @@ pre {
 .content h1 {
   font-size: 2.25rem;
   line-height: 1.25;
-  border-bottom: 4px solid /*#d4a373*/ #9b6b3d;
+  border-bottom: 4px solid #d4a373;
   padding-bottom: 0.5rem;
   color: var(--color-primary);
 }
