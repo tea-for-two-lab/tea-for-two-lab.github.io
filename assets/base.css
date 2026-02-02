@@ -73,9 +73,10 @@ pre {
   align-items: center;
   gap: 0.75rem;
   margin: 0;
+   font-weight: normal;
 }
 
-.site-logo i [
+.site-logo i {
  font-weight: bold;
 }
 
