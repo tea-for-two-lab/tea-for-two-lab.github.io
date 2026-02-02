@@ -242,9 +242,9 @@ margin-top: 3rem;
   text-decoration: none;
 }
 
-.components-list a:hover,
-.components-list a:focus-visible {
+.components-list a:hover {
   text-decoration: underline;
+   border: 3px solid var(--color-primary);
 }
 
 .components-list a:focus-visible {
