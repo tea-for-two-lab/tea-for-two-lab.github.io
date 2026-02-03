@@ -109,6 +109,7 @@ pre {
   padding-bottom: 0.5rem;
   color: var(--color-primary);
    font-weight: normal;
+   width: 100%;
 }
 
 .content h2 {
