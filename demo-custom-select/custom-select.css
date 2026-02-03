@@ -21,6 +21,11 @@
   background-color: #FFFFFF;
 }
 
+.custom-select__list [role="option"][aria-selected="true"] {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
 .custom-select__trigger {
   all: unset;
   display: block;
