@@ -5,7 +5,7 @@ const options = Array.from(listbox.querySelectorAll('[role="option"]'));
 const hiddenInput = select.querySelector('input[type="hidden"]');
 
 let isOpen = false;
-let currentIndex = 0;
+let currentIndex = -1;
 
 /* ---------- utils ---------- */
 
@@ -21,10 +21,17 @@ function closeListbox({ restoreFocus = true } = {}) {
   trigger.setAttribute('aria-expanded', 'false');
 
   resetOptions();
+  currentIndex = -1;
 
   if (restoreFocus) {
     trigger.focus();
   }
+}
+
+function resetOptions() {
+  options.forEach(option => {
+    option.tabIndex = -1;
+  });
 }
 
 function setActiveOption(index) {
@@ -37,17 +44,19 @@ function setActiveOption(index) {
   option.focus();
 }
 
-function resetOptions() {
-  options.forEach(option => {
-    option.tabIndex = -1;
-  });
-}
-
 function selectOption(option) {
+  // Mise à jour visuelle
   trigger.querySelector('.custom-select__label').textContent =
     option.textContent;
 
+  // Mise à jour valeur formulaire
   hiddenInput.value = option.textContent;
+
+  // Mise à jour ARIA
+  options.forEach(opt =>
+    opt.removeAttribute('aria-selected')
+  );
+  option.setAttribute('aria-selected', 'true');
 
   closeListbox();
 }
@@ -60,14 +69,14 @@ trigger.addEventListener('click', () => {
 });
 
 trigger.addEventListener('keydown', (e) => {
-  // Ouvrir la liste
+  // Ouvrir la liste sans entrer dedans
   if (!isOpen && (e.key === 'Enter' || e.key === ' ')) {
     e.preventDefault();
     openListbox();
     return;
   }
 
-  // Entrer dans la liste volontairement
+  // Entrée volontaire dans la liste
   if (isOpen && e.key === 'ArrowDown') {
     e.preventDefault();
 
@@ -79,7 +88,7 @@ trigger.addEventListener('keydown', (e) => {
     return;
   }
 
-  // Fermer
+  // Fermeture
   if (isOpen && e.key === 'Escape') {
     e.preventDefault();
     closeListbox();
