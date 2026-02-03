@@ -7,7 +7,7 @@
 }
 
 .custom-select__list [role="option"]:hover {
-  border: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-primary);
   background-color: #FFFFFF;
   cursor: pointer;
 }
