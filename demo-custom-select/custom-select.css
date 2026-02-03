@@ -2,6 +2,16 @@
   list-style-type: none;
 }
 
+.custom-select__list [role="option"] {
+ margin-bottom: 0.5rem;
+}
+
+.custom-select__list [role="option"]:hover {
+  border: 3px solid var(--color-primary);
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
 .custom-select__list [role="option"]:focus-visible {
   outline: 3px dashed var(--color-primary);
   outline-offset: 3px;
