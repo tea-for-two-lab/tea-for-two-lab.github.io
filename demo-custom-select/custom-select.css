@@ -6,6 +6,7 @@
 
 .custom-select__list [role="option"] {
  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .custom-select__list [role="option"]:hover {
