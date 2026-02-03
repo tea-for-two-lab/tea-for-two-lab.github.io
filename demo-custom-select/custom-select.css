@@ -1,5 +1,6 @@
 .custom-select__list {
   list-style-type: none;
+  border: 2px solid var(--color-primary);
 }
 
 .custom-select__list [role="option"] {
