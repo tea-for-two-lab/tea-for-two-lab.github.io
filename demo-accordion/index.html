@@ -13,9 +13,9 @@
   <main class="layout">
      <!-- COLONNE GAUCHE -->
     <section class="content">
-      <h1 class="site-logo">
-          <img src="/assets/img/logo-un-gobelet-200.png" alt="" width="200" height="248">
-          <i lang="en">Accordion</i> <span aria-hidden="true">—</span> démo accessibilité</h1>
+      <header id="header-content" role="banner">
+        <!-- h1 injecté ici-->
+      </header>
          <p>
            Démonstration d’un composant accordéon accessible (button + panneau, aria-expanded, aria-controls).
         </p>
@@ -155,6 +155,7 @@
     </aside>
   </main>
   <div id="footer-container"><!-- Footer injecté ici --></div>
+  <script src="/assets/js/include-header.js"></script>
   <script src="/assets/js/include-footer.js"></script>
  <script src="/demo-accordion/accordion.js"></script>
 </body>
