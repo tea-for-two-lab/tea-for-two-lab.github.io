@@ -1,1 +1,5 @@
-
+fetch('/assets/includes/header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header-content').innerHTML = html;
+  });
