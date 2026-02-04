@@ -78,6 +78,28 @@ pre {
 }
 
 /* =========================
+   Retour index
+   ========================= */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  text-decoration: underline;
+}
+
+.back-link:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* =========================
    Logo + titre (partout)
    ========================= */
 .site-logo {
