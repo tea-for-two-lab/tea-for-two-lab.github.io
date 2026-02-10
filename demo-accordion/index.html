@@ -59,11 +59,38 @@
        <ul>
          <li><code>button</code>
           <ul>
+            <li><code>aria-controls</code></li>
              <li><code>aria-expanded</code></li>
-             <li><code>aria-controls</code></li>
            </ul>   
          </li>
        </ul>   
+      </section>
+
+      <h2>Spécifications d'accessibilité</h2>
+      <section class="demo-block">
+        <h3>Attributs Aria</h3>
+        <ul>
+         <li>Le <code>button</code> possède les deux attributs <code>aria-expanded</code> et <code>aria-controls</code>
+           <ul>
+              <li><code>aria-controls</code> : 
+                <ul>
+                  <li>a pour valeur l'<code>id</code> du panneau correspondant, donc <code>aria-controls</code> est différent pour chaque <code>button</code>.<br>
+                    Par exemple le premier <code>button</code> possède <code>aria-controls="panel-1"</code></li>
+                </ul>
+               </li>
+             <li><code>aria-expanded</code> :
+               <ul>
+                 <li>Si l'accordéon est ouvert : <code>aria-expanded="true"</code></li>
+                 <li>Si l'accordéon est fermé : <code>aria-expanded="false"</code></li>
+               </ul>
+             </li>
+        </ul> 
+          <h3>Comportements clavier</h3>
+           <ul>
+             <li>Au focus d'un <code>button</code> : la touche <code>Enter</code> ouvre et ferme l'accordéon</li>
+             <li>Au focus d'un <code>button</code> : la touche <code>Space</code> ouvre et ferme l'accordéon</li>
+           </ul>
+        
       </section>
 
       <h2>États et interactions de l'accordéon : exemple avec souris ou clavier</h2>
