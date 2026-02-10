@@ -143,9 +143,9 @@ pre {
 .content h3 {
   font-size: 1.25rem;
   line-height: 1.4;
-  color: #A06931;
+  color: #98632F;
    padding: 0.5rem;
-   border-bottom: 1px solid #A06931;
+   border-bottom: 1px solid #98632F;
 }
 
 /* =========================
@@ -160,8 +160,10 @@ pre {
 }
 
 .demo-block code {
- background-color: #FFFFFF;
+    background-color: #FFFFFF;
    padding: 2px;
+   color: var(--color-primary);
+   font-weight: bold;
 }
 
 /* =========================
