@@ -157,6 +157,10 @@ pre {
   border-radius: 6px;
 }
 
+.demo-block code {
+ background-color: #FFFFFF;
+}
+
 /* =========================
    Colonne droite – Code
    ========================= */
