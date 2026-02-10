@@ -230,12 +230,15 @@ pre {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+   margin: 0;             
+  line-height: 1.2;
 }
 
 .site-footer-brand img {
   width: 2rem;
   height: auto;
   display: block;
+   flex-shrink: 0;
 }
 
 .site-footer-meta {
