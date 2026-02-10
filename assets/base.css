@@ -233,14 +233,14 @@ pre {
 }
 
 .site-footer p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .site-footer-brand {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-   margin-top: 0.5rem;             
+   margin-top: 1rem;             
   line-height: 1.2;
 }
 
