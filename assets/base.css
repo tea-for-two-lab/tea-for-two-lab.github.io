@@ -226,6 +226,10 @@ pre {
   margin-top: 3rem;
 }
 
+.site-footer p {
+  margin: 0;
+}
+
 .site-footer-brand {
   display: inline-flex;
   align-items: center;
