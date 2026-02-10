@@ -74,7 +74,7 @@ pre {
 }
 
 .content {
- margin-top: 2rem;
+ margin-top: 0.5rem;
 }
 
 /* =========================
@@ -82,7 +82,7 @@ pre {
    ========================= */
 .back-link {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   color: var(--color-primary);
   font-weight: 600;
