@@ -74,15 +74,20 @@
            <ul>
               <li><code>aria-controls</code> : 
                 <ul>
-                  <li>a pour valeur l'<code>id</code> du panneau correspondant, donc <code>aria-controls</code> est différent pour chaque <code>button</code>.<br>
-                    Par exemple le premier <code>button</code> possède <code>aria-controls="panel-1"</code>, et le 2e possède <code>aria-controls="panel-2"</code>, etc.</li>
+                  <li>Est un attribut statique qui a pour valeur l'<code>id</code> du panneau correspondant, donc <code>aria-controls</code> est différent pour chaque <code>button</code>.<br>
+                    Par exemple le premier <code>button</code> possède <code>aria-controls="panel-1"</code>, et le 2e possède <code>aria-controls="panel-2"</code>, etc.
+                   </li>
                 </ul>
                </li>
              <li><code>aria-expanded</code> :
                <ul>
-                 <li>Si l'accordéon est ouvert : <code>aria-expanded="true"</code></li>
-                 <li>Si l'accordéon est fermé : <code>aria-expanded="false"</code></li>
-               </ul>
+                 <li>Est un attribut dynamique
+                   <ul>
+                      <li>Si l'accordéon est ouvert : <code>aria-expanded="true"</code></li>
+                      <li>Si l'accordéon est fermé : <code>aria-expanded="false"</code></li>
+                   </ul>
+                  </li>
+                </ul>
              </li>
            </ul>
          </li>
