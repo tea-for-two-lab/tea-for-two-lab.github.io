@@ -94,7 +94,7 @@ pre {
 }
 
 .back-link:focus-visible,
-.text-link:fovus-visible {
+.text-link:focus-visible {
   outline: 3px dashed var(--color-primary);
   outline-offset: 3px;
 }
