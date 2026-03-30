@@ -1,1 +1,184 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tea For Two LAB | Notes de bas de page – démonstration accessibilité</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="footnotes.css">
+</head>
+
+<body data-page-title="Footnotes">
+  <div class="layout">
+     <!-- COLONNE GAUCHE -->
+    <section class="content">
+    <header id="header-content" role="banner">
+        <!-- h1 injecté ici-->
+      </header>
+      <main>
+         <p>
+           Démonstration d’un composant de notes de bas de page accessibles.
+        </p>
+     
+      <h2>Démo</h2>
+           
+      <section class="demo-block">
+       <h1>Qu'est-ce que la finance responsable ?</h1>
+        <p>La finance responsable repose sur des placements financiers investis sur des projets qui concilient <a href="#note-1" aria-description="Accéder à la note de bas de page" id="anchor-1" class="anchor">performances financières</a>, sociales et environnementales. Il s’agit de prendre en compte les critères Environnementaux, Sociaux et de Gouvernances d’entreprises (ESG) pour évaluer l’impact et la performance des entreprises, en complément des critères financiers habituels comme les chiffres d’affaires, le prix de l’action, les perspectives de croissance etc...
+        </p>
+        <p>Quelle est votre approche en termes d'intégration des enjeux Environnementaux, Sociaux et de Gouvernance d'entreprises (ESG) dans vos choix de <a href="#note-2" aria-description="Accéder à la note de bas de page" id="anchor-2" class="anchor">placements financiers ?</a>
+        </p>
+        6
+        <hr />
+        <ul id="footnote-label" aria-label="Notes de bas de page">
+        <li class="note"><a href="#anchor-1" class="back" aria-describedby="anchor-1" id="note-1">&nbsp;Tout investissement financier présente un risque de perte partielle ou totale du capital.&nbsp;<span aria-hidden="true">↩</span><span class="sr-only">Retour au texte</span></a></li>
+        <li class="note"><a href="#anchor-2" class="back" aria-describedby="anchor-2" id="note-2">&nbsp;Par placement, il faut entendre : actions, obligations, OPCVM, unités de compte des assurances vie.&nbsp;<span aria-hidden="true">↩</span><span class="sr-only">Retour au texte</span></a></li>
+        </ul>
+
+      </section>
+
+   <h2>Principaux éléments pour réaliser ce composant accessible</h2>
+      <section class="demo-block">
+         <ul>
+         <li>button
+          <ul>
+             <li>aria-haspopup="listbox"</li>
+             <li>aria-controls</li>
+           </ul>   
+         </li>
+           <li>ul
+          <ul>
+             <li>role="listbox"</li>
+             <li>tabindex</li>
+             <li>aria-labelledby</li>
+            <li>li
+              <ul>
+               <li>role="option"</li>
+               <li>tabindex</li>
+             </ul>
+            </li>
+           </ul>   
+         </li>
+       </ul>   
+      </section>
+
+      <h2>États et interactions utilisateur</h2>
+       <section class="demo-block">
+     
+        </section>
+      </main>
+      
+    </section>
+
+    <!-- COLONNE DROITE -->
+    <aside class="code">
+
+      <!-- HTML -->
+      <h2 class="code-title-html">HTML</h2>
+        
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-html">
+<span class="tag">&lt;ul</span> <span class="attr">class</span>=<span class="string">"accordion"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-1"</span><span class="tag">&gt;</span>
+      Section 1
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-1"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 1.<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Autre paragraphe éventuel.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-2"</span><span class="tag">&gt;</span>
+      Section 2
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-2"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 2.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;button</span>
+      <span class="attr">type</span>=<span class="string">"button"</span>
+      <span class="attr">aria-expanded</span>=<span class="string">"false"</span>
+      <span class="attr">aria-controls</span>=<span class="string">"panel-3"</span><span class="tag">&gt;</span>
+      Section 3
+    <span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;div</span>
+      <span class="attr">id</span>=<span class="string">"panel-3"</span>
+      <span class="attr">hidden</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Contenu de la section 3.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+        </code></pre>
+         <button class="copy-btn" data-copy="html">Copier le code HTML</button>
+      </div>
+
+      <!-- JS -->
+     
+      <h2 class="code-title-js">JavaScript</h2>
+        
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-js">
+<span class="keyword">const</span> buttons =
+  document.querySelectorAll(<span class="string">'.accordion button'</span>);
+        </code></pre>
+         <button class="copy-btn" data-copy="js">Copier le code JavaScript</button>
+      </div>
+
+      <!-- CSS -->
+      
+        <h2 class="code-title-css">CSS</h2>
+       
+      <div class="code-block">
+       <pre tabindex="-1"><code id="code-css">
+<span class="property">background-color</span>: <span class="value">var(--color-action)</span>;
+        </code></pre>
+         <button class="copy-btn" data-copy="css">Copier le code CSS</button>
+      </div>
+
+    </aside>
+  </div>
+  <div id="footer-container"><!-- Footer injecté ici --></div>
+  <script src="/assets/js/include-header.js"></script>
+  <script src="/assets/js/include-footer.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
