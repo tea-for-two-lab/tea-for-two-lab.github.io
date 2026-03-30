@@ -1,1 +1,63 @@
 
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0,0,0,0);
+border: 0;
+}
+ul {
+list-style-type:none;
+padding: 0;
+}
+a {
+text-decoration: none;
+color:black;
+border: 3px dashed transparent;
+}
+a.anchor {
+border-bottom: 2px solid #008854;
+}
+a:focus {
+border: 3px dashed #008854;
+outline: 0;
+}
+a:hover {
+4
+border-bottom: 3px solid #008854;
+}
+/**************************************************/
+/** POUR LE FONCTIONNEMENT AUTO DE LA NUMEROTATION
+/**************************************************/
+.footnotes-page {
+counter-reset: footnotes;
+}
+.anchor {
+counter-increment: footnotes;
+padding-top: 7px;
+padding-left: 2px;
+padding-right: 2px;
+}
+.anchor::after {
+content: '(' counter(footnotes) ')';
+vertical-align: super;
+margin-left: 2px;
+padding: 2px;
+}
+
+/* Counter notes bas de page */
+#footnote-label {
+counter-reset: footnotes-bottom;
+font-size: 0.85em;
+}
+#footnote-label a {
+counter-increment: footnotes-bottom;
+padding-right: 2px;
+}
+#footnote-label a::before {
+content: '(' counter(footnotes-bottom) ')';
+padding-left: 2px;
+}
