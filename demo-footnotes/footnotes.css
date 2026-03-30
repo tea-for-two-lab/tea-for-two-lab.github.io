@@ -6,9 +6,6 @@
 }
 .anchor {
   counter-increment: footnotes;
-  padding-top: 7px;
-  padding-left: 2px;
-  padding-right: 2px;
 }
 .anchor::after {
   content: '(' counter(footnotes) ')';
