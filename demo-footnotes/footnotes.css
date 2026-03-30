@@ -1,32 +1,32 @@
 /**************************************************/
 /** POUR LE FONCTIONNEMENT AUTO DE LA NUMEROTATION
 /**************************************************/
-.footnotes-page {
-counter-reset: footnotes;
+#footnotes-container {
+  counter-reset: footnotes;
 }
 .anchor {
-counter-increment: footnotes;
-padding-top: 7px;
-padding-left: 2px;
-padding-right: 2px;
+  counter-increment: footnotes;
+  padding-top: 7px;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 .anchor::after {
-content: '(' counter(footnotes) ')';
-vertical-align: super;
-margin-left: 2px;
-padding: 2px;
+  content: '(' counter(footnotes) ')';
+  vertical-align: super;
+  margin-left: 2px;
+  padding: 2px;
 }
 
 /* Counter notes bas de page */
 #footnote-label {
-counter-reset: footnotes-bottom;
-font-size: 0.85em;
+  counter-reset: footnotes-bottom;
+  font-size: 0.85em;
 }
 #footnote-label a {
-counter-increment: footnotes-bottom;
-padding-right: 2px;
+  counter-increment: footnotes-bottom;
+  padding-right: 2px;
 }
 #footnote-label a::before {
-content: '(' counter(footnotes-bottom) ')';
-padding-left: 2px;
+  content: '(' counter(footnotes-bottom) ')';
+  padding-left: 2px;
 }
