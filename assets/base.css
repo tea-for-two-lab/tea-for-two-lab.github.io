@@ -80,7 +80,8 @@ pre {
 /* =========================
    Retour index
    ========================= */
-.back-link {
+.back-link,
+.text-link {
   display: inline-block;
   margin-bottom: 2rem;
 
@@ -90,13 +91,20 @@ pre {
 }
 
 .back-link:hover,
-.back-link:focus-visible {
+.text-link:hover,
+.back-link:focus-visible,
+.text-link:focus-visible {
   text-decoration: underline;
 }
 
-.back-link:focus-visible {
+.back-link:focus-visible,
+.text-link:fovus-visible {
   outline: 3px dashed var(--color-primary);
   outline-offset: 3px;
+}
+
+.text-link {
+   margin-bottom: 0;
 }
 
 /* =========================
