@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabs – Tea For Two Lab</title>
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/demo-tabs/tabs.css">
+</head>
+
+<body data-page-title="Tabs">
+  <header id="header-content" role="banner"></header>
+
+  <main class="layout">
+    <section class="content">
+      <div class="demo-block">
+        <h2>Démo : système d’onglets accessible</h2>
+
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="Exemples de contenus">
+            <button
+              type="button"
+              class="tabs__tab"
+              role="tab"
+              id="tab-html"
+              aria-selected="true"
+              aria-controls="panel-html"
+            >
+              HTML
+            </button>
+
+            <button
+              type="button"
+              class="tabs__tab"
+              role="tab"
+              id="tab-css"
+              aria-selected="false"
+              aria-controls="panel-css"
+              tabindex="-1"
+            >
+              CSS
+            </button>
+
+            <button
+              type="button"
+              class="tabs__tab"
+              role="tab"
+              id="tab-js"
+              aria-selected="false"
+              aria-controls="panel-js"
+              tabindex="-1"
+            >
+              JavaScript
+            </button>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-html"
+            aria-labelledby="tab-html"
+          >
+            <h3>HTML</h3>
+            <p>Le HTML fournit la structure sémantique du composant.</p>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-css"
+            aria-labelledby="tab-css"
+            hidden
+          >
+            <h3>CSS</h3>
+            <p>Le CSS rend visible l’onglet sélectionné et le focus clavier.</p>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-js"
+            aria-labelledby="tab-js"
+            hidden
+          >
+            <h3>JavaScript</h3>
+            <p>Le JavaScript gère la navigation clavier et l’affichage des panneaux.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/include-header.js"></script>
+  <script src="/assets/js/include-footer.js"></script>
+  <script src="/demo-tabs/tabs.js"></script>
+</body>
+</html>
