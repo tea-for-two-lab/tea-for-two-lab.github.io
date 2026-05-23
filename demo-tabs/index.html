@@ -1,6 +1,280 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tea For Two LAB | Onglets – démonstration accessibilité</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="tabs.css">
+</head>
+
+<body data-page-title="Tabs">
+  <div class="layout">
+    <!-- COLONNE GAUCHE -->
+    <section class="content">
+      <header id="header-content" role="banner">
+        <!-- h1 injecté ici -->
+      </header>
+
+      <main>
+        <p>
+          Démonstration d’un composant d’onglets accessible
+          (<code>tablist</code>, <code>tab</code>, <code>tabpanel</code>,
+          <code>aria-selected</code>, <code>aria-controls</code>).
+        </p>
+
+        <h2>Démo</h2>
+        <section class="demo-block">
+          <div class="tabs">
+            <div class="tabs__list" role="tablist" aria-label="Exemples de contenus">
+              <button
+                type="button"
+                class="tabs__tab"
+                role="tab"
+                id="tab-html"
+                aria-selected="true"
+                aria-controls="panel-html"
+              >
+                HTML
+              </button>
+
+              <button
+                type="button"
+                class="tabs__tab"
+                role="tab"
+                id="tab-css"
+                aria-selected="false"
+                aria-controls="panel-css"
+                tabindex="-1"
+              >
+                CSS
+              </button>
+
+              <button
+                type="button"
+                class="tabs__tab"
+                role="tab"
+                id="tab-js"
+                aria-selected="false"
+                aria-controls="panel-js"
+                tabindex="-1"
+              >
+                JavaScript
+              </button>
+            </div>
+
+            <div
+              class="tabs__panel"
+              role="tabpanel"
+              id="panel-html"
+              aria-labelledby="tab-html"
+            >
+              <h3>HTML</h3>
+              <p>Le HTML fournit la structure sémantique du composant.</p>
+            </div>
+
+            <div
+              class="tabs__panel"
+              role="tabpanel"
+              id="panel-css"
+              aria-labelledby="tab-css"
+              hidden
+            >
+              <h3>CSS</h3>
+              <p>Le CSS rend visible l’onglet sélectionné et le focus clavier.</p>
+            </div>
+
+            <div
+              class="tabs__panel"
+              role="tabpanel"
+              id="panel-js"
+              aria-labelledby="tab-js"
+              hidden
+            >
+              <h3>JavaScript</h3>
+              <p>Le JavaScript gère la navigation clavier et l’affichage des panneaux.</p>
+            </div>
+          </div>
+        </section>
+
+        <h2>Principaux éléments pour réaliser ce composant accessible</h2>
+        <section class="demo-block">
+          <ul>
+            <li><code>role="tablist"</code></li>
+            <li><code>role="tab"</code></li>
+            <li><code>role="tabpanel"</code></li>
+            <li><code>aria-selected</code></li>
+            <li><code>aria-controls</code></li>
+            <li><code>aria-labelledby</code></li>
+          </ul>
+        </section>
+
+        <h2>Spécifications d’accessibilité</h2>
+        <section class="demo-block">
+          <h3>Attributs ARIA</h3>
+          <ul>
+            <li>
+              Le conteneur des onglets possède <code>role="tablist"</code>.
+            </li>
+            <li>
+              Chaque onglet possède <code>role="tab"</code>.
+            </li>
+            <li>
+              Chaque panneau possède <code>role="tabpanel"</code>.
+            </li>
+            <li>
+              L’onglet actif possède <code>aria-selected="true"</code>.
+            </li>
+            <li>
+              Les onglets inactifs possèdent <code>aria-selected="false"</code>.
+            </li>
+            <li>
+              Chaque onglet pointe vers son panneau avec <code>aria-controls</code>.
+            </li>
+            <li>
+              Chaque panneau est relié à son onglet avec <code>aria-labelledby</code>.
+            </li>
+          </ul>
+
+          <h3>Comportements clavier</h3>
+          <ul>
+            <li><code>Tab</code> place le focus sur l’onglet actif.</li>
+            <li><code>ArrowRight</code> déplace le focus vers l’onglet suivant.</li>
+            <li><code>ArrowLeft</code> déplace le focus vers l’onglet précédent.</li>
+            <li><code>Home</code> place le focus sur le premier onglet.</li>
+            <li><code>End</code> place le focus sur le dernier onglet.</li>
+            <li><code>Enter</code> ou <code>Space</code> active l’onglet qui a le focus.</li>
+          </ul>
+        </section>
+      </main>
+    </section>
+
+    <!-- COLONNE DROITE -->
+    <aside class="code">
+      <h2 class="code-title-html">HTML</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-html">
+&lt;div class="tabs"&gt;
+  &lt;div class="tabs__list" role="tablist" aria-label="Exemples de contenus"&gt;
+    &lt;button
+      type="button"
+      class="tabs__tab"
+      role="tab"
+      id="tab-html"
+      aria-selected="true"
+      aria-controls="panel-html"&gt;
+      HTML
+    &lt;/button&gt;
+
+    &lt;button
+      type="button"
+      class="tabs__tab"
+      role="tab"
+      id="tab-css"
+      aria-selected="false"
+      aria-controls="panel-css"
+      tabindex="-1"&gt;
+      CSS
+    &lt;/button&gt;
+
+    &lt;button
+      type="button"
+      class="tabs__tab"
+      role="tab"
+      id="tab-js"
+      aria-selected="false"
+      aria-controls="panel-js"
+      tabindex="-1"&gt;
+      JavaScript
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div
+    class="tabs__panel"
+    role="tabpanel"
+    id="panel-html"
+    aria-labelledby="tab-html"&gt;
+    &lt;h3&gt;HTML&lt;/h3&gt;
+    &lt;p&gt;Le HTML fournit la structure sémantique du composant.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div
+    class="tabs__panel"
+    role="tabpanel"
+    id="panel-css"
+    aria-labelledby="tab-css"
+    hidden&gt;
+    &lt;h3&gt;CSS&lt;/h3&gt;
+    &lt;p&gt;Le CSS rend visible l’onglet sélectionné et le focus clavier.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div
+    class="tabs__panel"
+    role="tabpanel"
+    id="panel-js"
+    aria-labelledby="tab-js"
+    hidden&gt;
+    &lt;h3&gt;JavaScript&lt;/h3&gt;
+    &lt;p&gt;Le JavaScript gère la navigation clavier et l’affichage des panneaux.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <button class="copy-btn" data-copy="html">Copier le code HTML</button>
+      </div>
+
+      <h2 class="code-title-js">JavaScript</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-js">
+const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+function activateTab(tab) {
+  tabs.forEach(currentTab =&gt; {
+    const isSelected = currentTab === tab;
+    const panelId = currentTab.getAttribute('aria-controls');
+    const panel = document.getElementById(panelId);
+
+    currentTab.setAttribute('aria-selected', String(isSelected));
+    currentTab.tabIndex = isSelected ? 0 : -1;
+
+    if (panel) {
+      panel.hidden = !isSelected;
+    }
+  });
+}
+        </code></pre>
+        <button class="copy-btn" data-copy="js">Copier le code JavaScript</button>
+      </div>
+
+      <h2 class="code-title-css">CSS</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-css">
+.tabs__tab[aria-selected="true"] {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  position: relative;
+  top: 3px;
+  border-bottom: 3px solid #ffffff;
+}
+        </code></pre>
+        <button class="copy-btn" data-copy="css">Copier le code CSS</button>
+      </div>
+    </aside>
+  </div>
+
+  <div id="footer-container"><!-- Footer injecté ici --></div>
+
+  <script src="/assets/js/include-header.js"></script>
+  <script src="/assets/js/include-footer.js"></script>
+  <script src="/demo-tabs/tabs.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
   <meta charset="UTF-8">
   <title>Tabs – Tea For Two Lab - Systèmes d'onglets - Démonstration accessiblité</title>
   <link rel="stylesheet" href="/assets/base.css">
