@@ -36,6 +36,9 @@
 .tabs__tab[aria-selected="true"] {
   background-color: var(--color-primary);
   color: #ffffff;
+  position: relative;
+  top: 3px;
+  border-bottom: 3px solid #ffffff;
 }
 
 .tabs__panel {
