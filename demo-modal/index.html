@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tea For Two LAB | Modale – démonstration accessibilité</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/base.css">
+  <link rel="stylesheet" href="modal.css">
+</head>
+
+<body data-page-title="Modal">
+  <div class="layout">
+    <!-- COLONNE GAUCHE -->
+    <section class="content">
+      <header id="header-content" role="banner">
+        <!-- h1 injecté ici -->
+      </header>
+
+      <main>
+        <p>
+          Démonstration d’une modale accessible construite avec un <code>div</code>
+          (<code>role="dialog"</code>, <code>aria-modal</code>, <code>aria-labelledby</code>,
+          <code>inert</code>, <code>hidden</code>), sans l’élément natif <code>&lt;dialog&gt;</code>.
+        </p>
+
+        <h2>Démo</h2>
+        <section class="demo-block">
+          <button type="button" class="modal-button" id="open-modal">
+            Ouvrir la modale
+          </button>
+        </section>
+
+        <h2>Principaux éléments pour réaliser ce composant accessible</h2>
+        <section class="demo-block">
+          <ul>
+            <li><code>button</code> d’ouverture</li>
+            <li><code>div</code> (fond assombri, parent de la modale)
+              <ul>
+                <li><code>hidden</code></li>
+              </ul>
+            </li>
+            <li><code>div</code> (modale)
+              <ul>
+                <li><code>role="dialog"</code></li>
+                <li><code>aria-modal="true"</code></li>
+                <li><code>aria-labelledby</code></li>
+                <li><code>tabindex="-1"</code></li>
+              </ul>
+            </li>
+            <li>Titre de la modale (<code>h2</code>)
+              <ul>
+                <li><code>id</code> référencé par <code>aria-labelledby</code></li>
+              </ul>
+            </li>
+            <li><code>button</code> de fermeture
+              <ul>
+                <li><code>aria-label="Fermer la modale"</code></li>
+                <li><code>svg</code> décoratif avec <code>aria-hidden="true"</code></li>
+              </ul>
+            </li>
+            <li>Contenu extérieur à la modale (<code>.layout</code> et <code>#footer-container</code>)
+              <ul>
+                <li><code>inert</code></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <h2>Spécifications d’accessibilité</h2>
+        <section class="demo-block">
+          <h3>Attributs et propriétés</h3>
+          <ul>
+            <li>
+              <code>role="dialog"</code> : placé sur le <code>div</code> de la modale, il indique aux
+              technologies d’assistance qu’il s’agit d’une boîte de dialogue. Attribut statique.
+            </li>
+            <li>
+              <code>aria-modal="true"</code> : placé sur le même <code>div</code>, il indique que le contenu
+              situé en dehors de la boîte de dialogue n’est pas disponible tant qu’elle est ouverte.
+              Attribut statique, présent dans le HTML et jamais retiré par le JavaScript. Il ne remplace pas
+              <code>inert</code>, qui rend réellement le reste de la page non interactif.
+            </li>
+            <li>
+              <code>aria-labelledby="modal-title"</code> : placé sur le <code>div</code> de la modale, il
+              référence l’<code>id</code> du titre <code>h2</code> visible. Ce titre fournit le nom
+              accessible de la boîte de dialogue. Attribut statique.
+            </li>
+            <li>
+              <code>tabindex="-1"</code> : placé sur le <code>div</code> de la modale, il permet de lui
+              donner le focus par programmation à l’ouverture, sans l’ajouter à l’ordre normal de
+              tabulation. Attribut statique.
+            </li>
+            <li>
+              <code>inert</code> : posé par le JavaScript, à l’ouverture, sur <code>.layout</code> et
+              <code>#footer-container</code> (tout le contenu de la page), et retiré à la fermeture. Les
+              éléments inertes ne peuvent ni recevoir le focus, ni être activés à la souris, et ils sont
+              retirés de l’arbre d’accessibilité. Il n’est jamais appliqué à un ancêtre de la modale ni à
+              son fond : c’est pourquoi la modale est placée à la racine du <code>body</code>, à côté de ces
+              deux éléments et non à l’intérieur.
+            </li>
+            <li>
+              <code>hidden</code> : présent dans le HTML sur le fond assombri
+              (<code>.modal-overlay</code>), qui est le parent de la modale. Il est retiré à l’ouverture,
+              avant de déplacer le focus, et réappliqué à la fermeture. Il retire la modale de l’affichage,
+              de la navigation au clavier et de l’arbre d’accessibilité. Le CSS ne déclare
+              <code>display</code> que sur <code>.modal-overlay:not([hidden])</code>, afin de ne pas
+              neutraliser cet attribut.
+            </li>
+            <li>
+              <code>aria-label="Fermer la modale"</code> : le bouton de fermeture ne contient qu’une croix
+              en SVG, il a donc besoin d’un nom accessible explicite. Attribut statique.
+            </li>
+            <li>
+              <code>aria-hidden="true"</code> sur le <code>svg</code> : la croix est purement décorative,
+              son nom est déjà fourni par <code>aria-label</code>. Masquer le SVG évite qu’il soit exposé
+              aux technologies d’assistance. Attribut statique.
+            </li>
+          </ul>
+          <p>
+            En résumé, <code>role</code>, <code>aria-modal</code>, <code>aria-labelledby</code>,
+            <code>tabindex</code> et <code>aria-label</code> sont statiques. Seuls <code>hidden</code> et
+            <code>inert</code> sont gérés dynamiquement par le JavaScript.
+          </p>
+
+          <h3>Ouverture et fermeture</h3>
+          <p>À l’ouverture, dans cet ordre :</p>
+          <ol>
+            <li>le bouton d’ouverture est mémorisé ;</li>
+            <li><code>hidden</code> est retiré du fond assombri : la modale devient visible et accessible ;</li>
+            <li><code>inert</code> est posé sur le reste de la page ;</li>
+            <li>le défilement de l’arrière-plan est bloqué (<code>overflow: hidden</code> sur <code>html</code>) ;</li>
+            <li>le focus est placé sur le <code>div</code> <code>role="dialog"</code>.</li>
+          </ol>
+          <p>À la fermeture, dans cet ordre :</p>
+          <ol>
+            <li><code>inert</code> est retiré du reste de la page ;</li>
+            <li>le défilement est rétabli ;</li>
+            <li><code>hidden</code> est réappliqué au fond assombri ;</li>
+            <li>le focus est rendu au bouton d’ouverture.</li>
+          </ol>
+          <p>
+            <code>inert</code> doit être retiré avant de rendre le focus : un élément inerte ne peut pas
+            le recevoir. Un clic sur le fond assombri ne ferme pas la modale : seuls le bouton de
+            fermeture et la touche <code>Escape</code> la ferment.
+          </p>
+
+          <h3>Comportements clavier</h3>
+          <ul>
+            <li><code>Enter</code> ou <code>Space</code> sur le bouton d’ouverture : ouvre la modale (comportement natif du <code>button</code>).</li>
+            <li>À l’ouverture : le focus se place sur le <code>div</code> <code>role="dialog"</code>.</li>
+            <li><code>Tab</code> depuis ce <code>div</code> : le focus va sur le premier élément interactif (le bouton de fermeture).</li>
+            <li><code>Shift + Tab</code> depuis ce <code>div</code> : le focus va sur le dernier élément interactif (le bouton d’exemple).</li>
+            <li><code>Tab</code> : le focus passe à l’élément interactif suivant dans la modale.</li>
+            <li><code>Tab</code> depuis le dernier élément interactif : le focus revient au premier.</li>
+            <li><code>Shift + Tab</code> depuis le premier élément interactif : le focus revient au dernier.</li>
+            <li><code>Escape</code> : ferme la modale et rend le focus au bouton d’ouverture.</li>
+            <li><code>Enter</code> ou <code>Space</code> sur le bouton de fermeture : ferme la modale et rend le focus au bouton d’ouverture.</li>
+          </ul>
+        </section>
+      </main>
+    </section>
+
+    <!-- COLONNE DROITE -->
+    <aside class="code">
+      <h2 class="code-title-html">HTML</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-html">&lt;button type="button" class="modal-button" id="open-modal"&gt;
+  Ouvrir la modale
+&lt;/button&gt;
+
+&lt;!-- À placer à la racine du body, après #footer-container --&gt;
+&lt;div class="modal-overlay" id="modal-overlay" hidden&gt;
+  &lt;div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    tabindex="-1"
+  &gt;
+    &lt;button type="button" class="modal__close" id="close-modal" aria-label="Fermer la modale"&gt;
+      &lt;svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"&gt;
+        &lt;path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+
+    &lt;h2 id="modal-title"&gt;Titre de la modale&lt;/h2&gt;
+    &lt;p&gt;Ceci est le contenu de la modale. Utilisez Tab pour parcourir ses éléments interactifs.&lt;/p&gt;
+    &lt;button type="button" class="modal-button"&gt;Bouton d’exemple&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <button class="copy-btn" data-copy="html">Copier le code HTML</button>
+      </div>
+
+      <h2 class="code-title-js">JavaScript</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-js">/* Modale */
+const openButton = document.getElementById('open-modal');
+const overlay = document.getElementById('modal-overlay');
+const dialog = overlay.querySelector('[role="dialog"]');
+const closeButton = document.getElementById('close-modal');
+
+// Éléments rendus inertes : jamais un ancêtre de la modale
+const inertTargets = [
+  document.querySelector('.layout'),
+  document.getElementById('footer-container')
+];
+
+let trigger = null;
+
+function getFocusableElements() {
+  return Array.from(dialog.querySelectorAll('button, a[href], input, select, textarea'));
+}
+
+function openModal() {
+  trigger = openButton;
+
+  overlay.hidden = false;
+
+  inertTargets.forEach(element =&gt; {
+    element.inert = true;
+  });
+
+  document.documentElement.classList.add('modal-open');
+
+  dialog.focus();
+}
+
+function closeModal() {
+  inertTargets.forEach(element =&gt; {
+    element.inert = false;
+  });
+
+  document.documentElement.classList.remove('modal-open');
+
+  overlay.hidden = true;
+
+  trigger.focus();
+}
+
+openButton.addEventListener('click', openModal);
+closeButton.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', event =&gt; {
+  if (overlay.hidden) return;
+
+  if (event.key === 'Escape') {
+    closeModal();
+    return;
+  }
+
+  if (event.key !== 'Tab') return;
+
+  const focusable = getFocusableElements();
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const active = document.activeElement;
+
+  if (!dialog.contains(active)) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus();
+  } else if (event.shiftKey &amp;&amp; (active === first || active === dialog)) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey &amp;&amp; active === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});</code></pre>
+        <button class="copy-btn" data-copy="js">Copier le code JavaScript</button>
+      </div>
+
+      <h2 class="code-title-css">CSS</h2>
+
+      <div class="code-block">
+        <pre tabindex="-1"><code id="code-css">/* Bouton d'ouverture et bouton d'action */
+.modal-button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.modal-button:hover {
+  text-decoration: underline;
+}
+
+.modal-button:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Fond assombri : plein écran, centre la boîte dans la fenêtre */
+.modal-overlay:not([hidden]) {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Boîte de dialogue : 400 × 400 px, réduite si l'espace manque */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 3.5rem 1.5rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.modal:focus {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: -8px;
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  color: var(--color-primary);
+}
+
+/* Bouton de fermeture : premier dans le DOM, placé en haut à droite par le CSS */
+.modal__close {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.modal__close:hover {
+  background-color: var(--color-bg-soft);
+}
+
+.modal__close:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Blocage du défilement de l'arrière-plan */
+html.modal-open {
+  overflow: hidden;
+}</code></pre>
+        <button class="copy-btn" data-copy="css">Copier le code CSS</button>
+      </div>
+    </aside>
+  </div>
+
+  <div id="footer-container"><!-- Footer injecté ici --></div>
+
+  <!-- À placer à la racine du body, après #footer-container -->
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      tabindex="-1"
+    >
+      <button type="button" class="modal__close" id="close-modal" aria-label="Fermer la modale">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <h2 id="modal-title">Titre de la modale</h2>
+      <p>Ceci est le contenu de la modale. Utilisez Tab pour parcourir ses éléments interactifs.</p>
+      <button type="button" class="modal-button">Bouton d’exemple</button>
+    </div>
+  </div>
+
+  <script src="/assets/js/include-header.js"></script>
+  <script src="/assets/js/include-footer.js"></script>
+  <script src="/demo-modal/modal.js"></script>
+</body>
+</html>

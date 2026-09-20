@@ -1,0 +1,94 @@
+/* Bouton d'ouverture et bouton d'action */
+.modal-button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.modal-button:hover {
+  text-decoration: underline;
+}
+
+.modal-button:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Fond assombri : plein écran, centre la boîte dans la fenêtre */
+.modal-overlay:not([hidden]) {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Boîte de dialogue : 400 × 400 px, réduite si l'espace manque */
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 3.5rem 1.5rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.modal:focus {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: -8px;
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  color: var(--color-primary);
+}
+
+/* Bouton de fermeture : premier dans le DOM, placé en haut à droite par le CSS */
+.modal__close {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.modal__close:hover {
+  background-color: var(--color-bg-soft);
+}
+
+.modal__close:focus-visible {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Blocage du défilement de l'arrière-plan */
+html.modal-open {
+  overflow: hidden;
+}

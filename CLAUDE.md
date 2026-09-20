@@ -150,7 +150,12 @@ N'ajouter des règles spécifiques que si elles sont nécessaires, et ne pas mod
 * Ne pas modifier le design général du site.
 * Si une modification générale semble nécessaire, l'expliquer avant de l'entreprendre.
 
-## 13. Vérification avant de conclure
+## 13. Git
+
+* Travailler uniquement sur la branche courante. Ne pas changer de branche.
+* Ne pas faire de commit ni de push sans demande explicite de l'utilisateur.
+
+## 14. Vérification avant de conclure
 
 Vérifier au minimum :
 
