@@ -40,7 +40,7 @@
 .accordion div {
   margin-top: 0.5rem;
   padding: 1rem;
-  background-color: var(--color-bg-soft);
+  background-color: #ffffff;
   border: 1px solid #cbd5dd;
   border-radius: 4px;
 }

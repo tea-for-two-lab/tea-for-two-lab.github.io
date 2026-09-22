@@ -73,6 +73,15 @@ pre {
   min-width: 0;
 }
 
+/* Layout empilé (pages de démonstration de composant) : la colonne de code
+   vient sous le contenu, l'ensemble est réduit en largeur et centré, comme
+   sur la page d'accueil (voir .layout.home ci-dessous). */
+.layout.stacked {
+  grid-template-columns: 1fr;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
 .content {
  margin-top: 0.5rem;
 }

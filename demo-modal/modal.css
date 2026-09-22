@@ -1,33 +1,41 @@
-/* Bouton d'ouverture et bouton d'action */
+/* Bouton d'ouverture et boutons d'exemple : même style que .accordion button
+   (demo-accordion/accordion.css), à l'exception de la largeur : ici en largeur
+   naturelle plutôt qu'en pleine largeur. */
 .modal-button {
   all: unset;
   box-sizing: border-box;
   cursor: pointer;
 
-  padding: 0.75rem 1.25rem;
-  background-color: var(--color-primary);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-bg);
   color: #ffffff;
-  border: 2px solid var(--color-primary);
+
+  border: 3px solid var(--color-bg);
   border-radius: 4px;
-  font-weight: 600;
 }
 
 .modal-button:hover {
+  background-color: #ffffff;
+  color: var(--color-action);
   text-decoration: underline;
 }
 
 .modal-button:focus-visible {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-bg);
   outline-offset: 3px;
 }
 
-/* Boutons d'exemple dans le contenu de la modale : empilés, même largeur, écart garanti
-   par "gap" (indépendant de tout ordre de règles ou de spécificité CSS) */
+/* Boutons d'exemple dans le contenu de la modale : empilés avec un écart garanti
+   par "gap", largeur naturelle mais identique pour les deux (via "align-items:
+   stretch", la valeur par défaut, qui étire chaque bouton à la largeur de son
+   conteneur, lui-même réduit à la largeur du bouton le plus large grâce à
+   "width: fit-content"), le tout centré horizontalement dans la modale. */
 .modal__actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
+  width: fit-content;
+  margin: 1rem auto 0;
 }
 
 .modal__actions .modal-button {
@@ -102,7 +110,8 @@
 }
 
 .modal__close:hover {
-  background-color: var(--color-bg-soft);
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .modal__close:focus-visible {

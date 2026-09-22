@@ -10,8 +10,8 @@
 </head>
 
 <body data-page-title="Modal">
-  <div class="layout">
-    <!-- COLONNE GAUCHE -->
+  <div class="layout stacked">
+    <!-- CONTENU -->
     <section class="content">
       <header id="header-content" role="banner">
         <!-- h1 injecté ici -->
@@ -126,7 +126,7 @@
       </main>
     </section>
 
-    <!-- COLONNE DROITE -->
+    <!-- CODE -->
     <aside class="code">
       <h2 class="code-title-html">HTML</h2>
 
@@ -245,36 +245,44 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
       <h2 class="code-title-css">CSS</h2>
 
       <div class="code-block">
-        <pre tabindex="-1"><code id="code-css">/* Bouton d'ouverture et bouton d'action */
+        <pre tabindex="-1"><code id="code-css">/* Bouton d'ouverture et boutons d'exemple : même style que .accordion button
+   (demo-accordion/accordion.css), à l'exception de la largeur : ici en largeur
+   naturelle plutôt qu'en pleine largeur. */
 .modal-button {
   <span class="property">all</span>: <span class="value">unset</span>;
   <span class="property">box-sizing</span>: <span class="value">border-box</span>;
   <span class="property">cursor</span>: <span class="value">pointer</span>;
 
-  <span class="property">padding</span>: <span class="value">0.75rem 1.25rem</span>;
-  <span class="property">background-color</span>: <span class="value">var(--color-primary)</span>;
+  <span class="property">padding</span>: <span class="value">0.75rem 1rem</span>;
+  <span class="property">background-color</span>: <span class="value">var(--color-bg)</span>;
   <span class="property">color</span>: <span class="value">#ffffff</span>;
-  <span class="property">border</span>: <span class="value">2px solid var(--color-primary)</span>;
+
+  <span class="property">border</span>: <span class="value">3px solid var(--color-bg)</span>;
   <span class="property">border-radius</span>: <span class="value">4px</span>;
-  <span class="property">font-weight</span>: <span class="value">600</span>;
 }
 
 .modal-button:hover {
+  <span class="property">background-color</span>: <span class="value">#ffffff</span>;
+  <span class="property">color</span>: <span class="value">var(--color-action)</span>;
   <span class="property">text-decoration</span>: <span class="value">underline</span>;
 }
 
 .modal-button:focus-visible {
-  <span class="property">outline</span>: <span class="value">3px dashed var(--color-primary)</span>;
+  <span class="property">outline</span>: <span class="value">3px dashed var(--color-bg)</span>;
   <span class="property">outline-offset</span>: <span class="value">3px</span>;
 }
 
-/* Boutons d'exemple dans le contenu de la modale : empilés, même largeur, écart garanti
-   par "gap" (indépendant de tout ordre de règles ou de spécificité CSS) */
+/* Boutons d'exemple dans le contenu de la modale : empilés avec un écart garanti
+   par "gap", largeur naturelle mais identique pour les deux (via "align-items:
+   stretch", la valeur par défaut, qui étire chaque bouton à la largeur de son
+   conteneur, lui-même réduit à la largeur du bouton le plus large grâce à
+   "width: fit-content"), le tout centré horizontalement dans la modale. */
 .modal__actions {
   <span class="property">display</span>: <span class="value">flex</span>;
   <span class="property">flex-direction</span>: <span class="value">column</span>;
   <span class="property">gap</span>: <span class="value">1rem</span>;
-  <span class="property">margin-top</span>: <span class="value">1rem</span>;
+  <span class="property">width</span>: <span class="value">fit-content</span>;
+  <span class="property">margin</span>: <span class="value">1rem auto 0</span>;
 }
 
 .modal__actions .modal-button {
@@ -349,7 +357,8 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
 }
 
 .modal__close:hover {
-  <span class="property">background-color</span>: <span class="value">var(--color-bg-soft)</span>;
+  <span class="property">outline</span>: <span class="value">3px solid var(--color-primary)</span>;
+  <span class="property">outline-offset</span>: <span class="value">3px</span>;
 }
 
 .modal__close:focus-visible {
