@@ -2,19 +2,74 @@
    Variables globales
    ========================= */
 :root {
-  --color-primary: #0b3c5d;
-  --color-primary-dark: #0b1f33;
+  /* Palette de marque (couleurs physiques). Les composants et les pages ne
+     doivent jamais s'y référencer directement : ils utilisent la couche de
+     tokens sémantiques ci-dessous. */
+  --color-tea: #d4a373;
+  --color-tea-soft: #f1e1cf;
+  --color-tea-dark: #76512f;
+  --color-tea-darker: #5c3f23;
+  --color-cream: #faf7f2;
 
-  --color-action: #0f5c6e;
-  --color-action-dark: #0c4a59;
+  --color-blue: #075985;
+  --color-blue-dark: #084565;
+  --color-blue-soft: #e5f3f8;
 
-  --color-bg: #044756;
-  --color-bg-soft: #eef3f7;
+  --color-ink: #24211e;
+  --color-ink-muted: #5e5852;
+  --color-white: #ffffff;
 
-  --color-text-main: #1a1a1a;
-  --color-text-muted: #5f6f7c;
+  /* Tokens sémantiques */
+  --color-page: var(--color-cream);
+  --color-surface: var(--color-white);
+  /* Neutralisée (test) : les surfaces de contenu redeviennent blanches plutôt
+     que teintées Tea, pour ne pas colorer tous les panneaux en beige/brun. */
+  --color-surface-soft: var(--color-white);
+  --color-border: #9b7653;
 
-  /* Code */
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-ink-muted);
+
+  /* Code inline (dans le texte courant), distinct des grands blocs de code
+     colorés syntaxiquement ci-dessous. Neutralisé (test) : ni Tea ni bleu vif,
+     un gris-bleu discret. */
+  --color-code-inline-bg: #eef1f2;
+  --color-code-inline-text: #24323a;
+
+  /* Titres : de nouveau un seul bleu encre pour H1/H2/H3 (abandon du brun sur
+     H2/H3 testé précédemment). Le filet Tea (--color-accent) reste sur H1/H3. */
+  --color-heading: var(--color-blue-dark);
+
+  --color-link: var(--color-blue);
+  --color-link-hover: var(--color-blue-dark);
+
+  --color-action: var(--color-blue);
+  --color-action-hover: var(--color-blue-dark);
+  --color-on-action: var(--color-white);
+
+  /* Aplats pleins des boutons/actions principales (accordéon, custom select,
+     modale) : test « bleu électrique profond », distinct du bleu encre des
+     titres (--color-heading) et du bleu de --color-action (onglets, liste du
+     custom select, croix de fermeture, bouton Copier — non concernés ici).
+     --color-tea-dark/--color-tea-darker restent définis plus haut mais ne
+     sont plus référencés, au cas où vous souhaitiez revenir à la variante
+     Tea/brun pour comparaison. */
+  --color-button: #075fc8;
+  --color-button-hover: #064b9d;
+
+  --color-accent: var(--color-tea);
+  --color-accent-soft: var(--color-tea-soft);
+
+  /* Couleur de focus dédiée, distincte de la marque, vérifiée sur tous les
+     fonds clairs du site (page, surface, surface secondaire). */
+  --color-focus: #005fcc;
+
+  /* Valeur testée par l'utilisateur (charbon chaud), fixée en littéral comme
+     les autres tokens ajustés visuellement ci-dessus. */
+  --color-code-bg: #292521;
+
+  /* Thème du panneau de code : indépendant de l'identité visuelle des pages,
+     non modifié dans cette passe. */
   --code-bg: #1e1e1e;
   --code-text: #d4d4d4;
   --code-tag: #569cd6;
@@ -36,14 +91,26 @@
 body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  color: var(--color-text-main);
+  color: var(--color-text);
   line-height: 1.6;
-  background-color: #ffffff;
+  background-color: var(--color-page);
 }
 
 code,
 pre {
   font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+/* Code inline dans le texte courant (ex. `button`, `aria-expanded="true"`),
+   partout sur le site sauf à l'intérieur des grands blocs de code déjà
+   colorés syntaxiquement (`pre code`), qui gardent leur propre traitement
+   plus bas. Rattaché à la palette Tea/crème plutôt qu'au bleu, pour rester
+   discret dans la lecture d'un paragraphe. */
+code:not(pre code) {
+  padding: 2px;
+  border-radius: 3px;
+  background-color: var(--color-code-inline-bg);
+  color: var(--color-code-inline-text);
 }
 
 .sr-only {
@@ -93,19 +160,19 @@ pre {
 .text-link {
   display: inline-block;
   margin-bottom: 2rem;
-  color: var(--color-primary);
+  color: var(--color-link);
   font-weight: 600;
 text-decoration: underline;
  }
 
 .back-link:hover {
    text-decoration: none;
-   outline: 3px solid var(--color-primary);
+   outline: 3px solid var(--color-link-hover);
 }
 
 .back-link:focus-visible,
 .text-link:focus-visible {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-focus);
   outline-offset: 3px;
     text-decoration: none;
 }
@@ -140,53 +207,64 @@ text-decoration: underline;
 /* =========================
    Titres
    ========================= */
+.content h1,
+.content h2,
+.content h3 {
+  color: var(--color-heading);
+}
+
 .content h1 {
-  font-size: 2.25rem;
-  line-height: 1.25;
-  border-bottom: 4px solid #d4a373;
+  font-size: clamp(2rem, 1.7rem + 2vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  border-bottom: 4px solid var(--color-accent);
   padding-bottom: 0.5rem;
-  color: var(--color-primary);
    font-weight: normal;
    width: 100%;
 }
 
 .content h2 {
-  font-size: 1.5rem;
-  line-height: 1.35;
-  color: var(--color-primary);
+  font-size: clamp(1.75rem, 1.5rem + 1.2vw, 2.125rem);
+  line-height: 1.25;
+  /* Marge haute volontairement supérieure à celle de .demo-block (voir plus
+     bas) : c'est elle qui doit gouverner l'espace avant une nouvelle grande
+     section, de façon cohérente qu'un H2 suive le paragraphe d'intro ou un
+     .demo-block précédent. */
+  margin: 3.5rem 0 1.25rem;
 }
 
 .content h3 {
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: #98632F;
+  font-size: clamp(1.25rem, 1.15rem + 0.6vw, 1.375rem);
+  line-height: 1.35;
+  margin: 2.5rem 0 1rem;
    padding: 0.5rem;
-   border-bottom: 1px solid #98632F;
+   border-bottom: 1px solid var(--color-accent);
+}
+
+/* Premier H3 d'un panneau .demo-block : sa marge haute ne doit pas s'ajouter
+   au padding du panneau, sous peine de créer un vide au-dessus du titre. */
+.content h3:first-child {
+  margin-top: 0;
 }
 
 /* =========================
    Bloc Démo
    ========================= */
 .demo-block {
-  margin: 2rem 0 4rem 0;
+  /* Marge basse réduite : c'est désormais la marge haute de .content h2 qui
+     porte la responsabilité de l'espacement avant une nouvelle section. */
+  margin: 2rem 0 3rem;
   padding: 1.5rem;
-  background-color: var(--color-bg-soft);
-  border: 1px solid #d6e0e8;
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-}
-
-.demo-block code {
-    background-color: #FFFFFF;
-   padding: 2px;
-   color: var(--color-primary);
-   font-weight: bold;
 }
 
 /* =========================
    Colonne droite – Code
    ========================= */
 .code {
-  background-color: var(--color-bg);
+  background-color: var(--color-code-bg);
   padding: 1.5rem;
   border-radius: 6px;
 }
@@ -228,14 +306,19 @@ text-decoration: underline;
    Bouton copier
    ========================= */
 .copy-btn {
-  background: #ffffff;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-action);
+  border: 1px solid var(--color-action);
   padding: 0.25rem 0.5rem;
   margin-top: 0.5rem;
   cursor: pointer;
 }
 
+/* Exception délibérée à --color-focus : ce bouton se trouve sur le panneau de
+   code sombre (--color-code-bg), où --color-focus n'offre toujours pas un
+   contraste suffisant après le passage au charbon chaud (2.54:1, sous le
+   minimum de 3:1). --code-text reste ici la couleur de focus la plus lisible
+   sur ce fond précis (10.26:1). */
 .copy-btn:focus-visible {
   outline: 2px dashed var(--code-text);
   outline-offset: 2px;
@@ -246,8 +329,8 @@ text-decoration: underline;
    ========================= */
 .site-footer {
   padding: 0 1.5rem 1.5rem 1.5rem;
-  background-color: #f7fafc;
-  border-top: 2px solid #d4a373;
+  background-color: var(--color-page);
+  border-top: 2px solid var(--color-accent);
   margin-top: 3rem;
 }
 
@@ -276,7 +359,7 @@ text-decoration: underline;
 
 .site-footer-story {
   padding-top: 0.5rem;
-  border-top: 1px solid #e0e6eb;
+  border-top: 1px solid var(--color-border);
   font-size: 0.65rem;
 }
 
@@ -310,22 +393,22 @@ margin-top: 3rem;
 .components-list a {
   display: block;
   padding: 1rem 1.25rem;
-  background-color: var(--color-bg-soft);
-  border: 1px solid #d6e0e8;
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
   border-radius: 6px;
-  color: var(--color-primary);
+  color: var(--color-link);
   font-weight: 600;
   text-decoration: none;
 }
 
 .components-list a:hover {
   text-decoration: underline;
-   outline: 3px solid var(--color-primary);
-   background-color: #FFFFFF;
+   outline: 3px solid var(--color-link-hover);
+   background-color: var(--color-surface);
 }
 
 .components-list a:focus-visible {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-focus);
    outline-offset: 3px;
 }
 
@@ -340,9 +423,11 @@ margin-top: 3rem;
     gap: 3rem;
   }
 
-  .content h1 { font-size: 1.9rem; }
-  .content h2 { font-size: 1.4rem; }
-  .content h3 { font-size: 1.2rem; }
+  /* Les tailles de h1/h2/h3 sont désormais fluides (clamp()) et n'ont plus
+     besoin d'une taille fixe ici. Seules les marges verticales, plus
+     généreuses depuis cette évolution, sont modérées sur petit écran. */
+  .content h2 { margin-top: 2.5rem; }
+  .content h3 { margin-top: 1.75rem; }
 
   .code { padding: 1rem; }
   .demo-block { padding: 1.25rem; }

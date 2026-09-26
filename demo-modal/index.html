@@ -254,21 +254,21 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
   <span class="property">cursor</span>: <span class="value">pointer</span>;
 
   <span class="property">padding</span>: <span class="value">0.75rem 1rem</span>;
-  <span class="property">background-color</span>: <span class="value">var(--color-bg)</span>;
-  <span class="property">color</span>: <span class="value">#ffffff</span>;
+  <span class="property">background-color</span>: <span class="value">var(--color-button)</span>;
+  <span class="property">color</span>: <span class="value">var(--color-on-action)</span>;
 
-  <span class="property">border</span>: <span class="value">3px solid var(--color-bg)</span>;
+  <span class="property">border</span>: <span class="value">3px solid var(--color-button)</span>;
   <span class="property">border-radius</span>: <span class="value">4px</span>;
 }
 
 .modal-button:hover {
-  <span class="property">background-color</span>: <span class="value">#ffffff</span>;
-  <span class="property">color</span>: <span class="value">var(--color-action)</span>;
+  <span class="property">background-color</span>: <span class="value">var(--color-surface)</span>;
+  <span class="property">color</span>: <span class="value">var(--color-button-hover)</span>;
   <span class="property">text-decoration</span>: <span class="value">underline</span>;
 }
 
 .modal-button:focus-visible {
-  <span class="property">outline</span>: <span class="value">3px dashed var(--color-bg)</span>;
+  <span class="property">outline</span>: <span class="value">3px dashed var(--color-focus)</span>;
   <span class="property">outline-offset</span>: <span class="value">3px</span>;
 }
 
@@ -308,7 +308,7 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
   <span class="property">max-width</span>: <span class="value">400px</span>;
   <span class="property">height</span>: <span class="value">400px</span>;
   <span class="property">max-height</span>: <span class="value">100%</span>;
-  <span class="property">background-color</span>: <span class="value">#ffffff</span>;
+  <span class="property">background-color</span>: <span class="value">var(--color-surface)</span>;
   <span class="property">border-radius</span>: <span class="value">6px</span>;
   /* overflow reste "visible" (valeur par défaut) : un "overflow" non visible ici
      rognerait le contour de focus ci-dessous. Le défilement du contenu est géré
@@ -316,7 +316,7 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
 }
 
 .modal:focus {
-  <span class="property">outline</span>: <span class="value">3px dashed var(--color-primary)</span>;
+  <span class="property">outline</span>: <span class="value">3px dashed var(--color-focus)</span>;
   <span class="property">outline-offset</span>: <span class="value">-3px</span>;
 }
 
@@ -333,7 +333,7 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
   <span class="property">margin-top</span>: <span class="value">0</span>;
   <span class="property">font-size</span>: <span class="value">1.5rem</span>;
   <span class="property">line-height</span>: <span class="value">1.35</span>;
-  <span class="property">color</span>: <span class="value">var(--color-primary)</span>;
+  <span class="property">color</span>: <span class="value">var(--color-heading)</span>;
 }
 
 /* Bouton de fermeture : premier dans le DOM, placé en haut à droite par le CSS */
@@ -350,19 +350,21 @@ document.addEventListener(<span class="string">'keydown'</span>, event =&gt; {
   <span class="property">justify-content</span>: <span class="value">center</span>;
   <span class="property">width</span>: <span class="value">2.75rem</span>;
   <span class="property">height</span>: <span class="value">2.75rem</span>;
-  <span class="property">background-color</span>: <span class="value">#ffffff</span>;
-  <span class="property">color</span>: <span class="value">var(--color-primary)</span>;
-  <span class="property">border</span>: <span class="value">2px solid var(--color-primary)</span>;
+  <span class="property">background-color</span>: <span class="value">var(--color-surface)</span>;
+  <span class="property">color</span>: <span class="value">var(--color-action)</span>;
+  <span class="property">border</span>: <span class="value">2px solid var(--color-action)</span>;
   <span class="property">border-radius</span>: <span class="value">4px</span>;
 }
 
+/* Le survol reprend volontairement la même couleur que le focus (--color-focus),
+   avec une bordure pleine plutôt que pointillée, pour donner le même effet visuel. */
 .modal__close:hover {
-  <span class="property">outline</span>: <span class="value">3px solid var(--color-primary)</span>;
+  <span class="property">outline</span>: <span class="value">3px solid var(--color-focus)</span>;
   <span class="property">outline-offset</span>: <span class="value">3px</span>;
 }
 
 .modal__close:focus-visible {
-  <span class="property">outline</span>: <span class="value">3px dashed var(--color-primary)</span>;
+  <span class="property">outline</span>: <span class="value">3px dashed var(--color-focus)</span>;
   <span class="property">outline-offset</span>: <span class="value">3px</span>;
 }
 

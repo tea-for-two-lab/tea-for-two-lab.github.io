@@ -1,6 +1,6 @@
 .custom-select__list {
   list-style-type: none;
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-action);
   padding: 0.5rem;
 }
 
@@ -10,20 +10,20 @@
 }
 
 .custom-select__list [role="option"]:hover {
-  outline: 3px solid var(--color-primary);
-  background-color: #FFFFFF;
+  outline: 3px solid var(--color-action-hover);
+  background-color: var(--color-surface);
   cursor: pointer;
 }
 
 .custom-select__list [role="option"]:focus-visible {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-focus);
   outline-offset: 3px;
-  background-color: #FFFFFF;
+  background-color: var(--color-surface);
 }
 
 .custom-select__list [role="option"][aria-selected="true"] {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+  background-color: var(--color-action);
+  color: var(--color-on-action);
 }
 
 .custom-select__trigger {
@@ -34,20 +34,20 @@
   cursor: pointer;
 
   padding: 0.75rem 1rem;
-  background-color: var(--color-bg);
-  color: #ffffff;
+  background-color: var(--color-button);
+  color: var(--color-on-action);
 
-  border: 3px solid var(--color-bg);
+  border: 3px solid var(--color-button);
   border-radius: 4px;
 }
 
 .custom-select__trigger:hover {
-  background-color: #ffffff;
-  color: var(--color-action);
+  background-color: var(--color-surface);
+  color: var(--color-button-hover);
   text-decoration: underline;
 }
 
 .custom-select__trigger:focus-visible {
-   outline: 3px dashed var(--color-bg);
+   outline: 3px dashed var(--color-focus);
    outline-offset: 3px;
 }

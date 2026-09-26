@@ -19,29 +19,29 @@
   cursor: pointer;
 
   padding: 0.75rem 1rem;
-  background-color: var(--color-bg);
-  color: #ffffff;
+  background-color: var(--color-button);
+  color: var(--color-on-action);
 
-  border: 3px solid var(--color-bg);
+  border: 3px solid var(--color-button);
   border-radius: 4px;
 }
 
 .accordion button:hover {
-  background-color: #ffffff;
-  color: var(--color-action);
+  background-color: var(--color-surface);
+  color: var(--color-button-hover);
   text-decoration: underline;
 }
 
 .accordion button:focus-visible {
-   outline: 3px dashed var(--color-bg);
+   outline: 3px dashed var(--color-focus);
    outline-offset: 3px;
 }
 
 .accordion div {
   margin-top: 0.5rem;
   padding: 1rem;
-  background-color: #ffffff;
-  border: 1px solid #cbd5dd;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
 }
 

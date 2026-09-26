@@ -7,21 +7,21 @@
   cursor: pointer;
 
   padding: 0.75rem 1rem;
-  background-color: var(--color-bg);
-  color: #ffffff;
+  background-color: var(--color-button);
+  color: var(--color-on-action);
 
-  border: 3px solid var(--color-bg);
+  border: 3px solid var(--color-button);
   border-radius: 4px;
 }
 
 .modal-button:hover {
-  background-color: #ffffff;
-  color: var(--color-action);
+  background-color: var(--color-surface);
+  color: var(--color-button-hover);
   text-decoration: underline;
 }
 
 .modal-button:focus-visible {
-  outline: 3px dashed var(--color-bg);
+  outline: 3px dashed var(--color-focus);
   outline-offset: 3px;
 }
 
@@ -61,7 +61,7 @@
   max-width: 400px;
   height: 400px;
   max-height: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-surface);
   border-radius: 6px;
   /* overflow reste "visible" (valeur par défaut) : un "overflow" non visible ici
      rognerait le contour de focus ci-dessous. Le défilement du contenu est géré
@@ -69,7 +69,7 @@
 }
 
 .modal:focus {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-focus);
   outline-offset: -3px;
 }
 
@@ -86,7 +86,7 @@
   margin-top: 0;
   font-size: 1.5rem;
   line-height: 1.35;
-  color: var(--color-primary);
+  color: var(--color-heading);
 }
 
 /* Bouton de fermeture : premier dans le DOM, placé en haut à droite par le CSS */
@@ -103,19 +103,21 @@
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  background-color: #ffffff;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  background-color: var(--color-surface);
+  color: var(--color-action);
+  border: 2px solid var(--color-action);
   border-radius: 4px;
 }
 
+/* Le survol reprend volontairement la même couleur que le focus (--color-focus),
+   avec une bordure pleine plutôt que pointillée, pour donner le même effet visuel. */
 .modal__close:hover {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-focus);
   outline-offset: 3px;
 }
 
 .modal__close:focus-visible {
-  outline: 3px dashed var(--color-primary);
+  outline: 3px dashed var(--color-focus);
   outline-offset: 3px;
 }
 
